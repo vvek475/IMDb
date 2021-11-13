@@ -16,7 +16,7 @@ function MovieSlide({title,image,vote,id,domain}){
                 <button class="add_watchlist"> + Watchlist</button>
                 {domain==='Popular TV Shows'?<p  class="trailer">⏵ Trailer</p>
                 :
-                <Link to="/movieInfo" >
+                <Link to={`/trailer/${id}`} >
                     <p  onClick={()=>(setmovieid(id))} class="trailer">⏵ Trailer</p>
                 </Link>}
             </div>

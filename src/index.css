@@ -449,6 +449,16 @@ svg{
 .castname{
     font-size: 20px!important;
 }
+/* TRAILER PAGE */
+.trailer__iframe iframe{
+    width: 100vw;
+    height: 100vh;
+    padding-right: 0px; 
+    border: 1px solid black; 
+}
+.trailer__iframe{
+    background-color: black;
+}
 @media(min-width:760px){ 
     .container{
         width: 670px;

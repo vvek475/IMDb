@@ -20,9 +20,6 @@ function Hero(){
         })
     },[])
     const filtered_movies=movieList.slice(0,3)
-    setTimeout(() => {
-        
-    }, 2000);
     const VIDEO_URL =BASE_URL + '/movie/'+videos+'/videos?'+API_KEY
     useEffect(() => {
     fetch(VIDEO_URL).then(res => res.json()).then(videoData => fetch_video(videoData))
