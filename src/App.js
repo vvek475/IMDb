@@ -1,6 +1,5 @@
 import Home from "./pages/home";
 import Info from "./pages/info";
-import { Movieselectfuncn } from "./store/movieProvider";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,13 +12,11 @@ function App() {
   return (
     <>
     <Router>
-      <Movieselectfuncn>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/movieInfo" component={Info} />
+          <Route path="/movieInfo/:id" component={Info} />
           <Route path="/trailer/:id" component={Trailer}/>
         </Switch>
-      </Movieselectfuncn>
     </Router>
     </>
   )

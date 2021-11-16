@@ -1,6 +1,5 @@
-import { useState ,useEffect,useContext} from "react";
+import { useState ,useEffect} from "react";
 import { Link } from "react-router-dom";
-import MovieProvider from "../../store/movieProvider";
 import Cast from "../cast/cast";
 import MovieSlide from "../movieslide/movieslide"
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
@@ -11,8 +10,8 @@ const SIMILAR_URL=`${BASE_URL}/movie/${id}/similar?${API_KEY}&language=en-US&pag
 const CAST_URL=`${BASE_URL}/movie/${id}/credits?${API_KEY}&language=en-US`
 const VIDEO_URL =BASE_URL + '/movie/'+id+'/videos?'+API_KEY */
 
-function MovieInfo(){
-    const [movieid,]=useContext(MovieProvider)
+function MovieInfo(props){
+    const movieid=props.match.params.id
     const [vid,setvid]=useState('')
     const [movieinfo,setmovieinfo] =useState()
     const [similar,setsimilar] = useState()

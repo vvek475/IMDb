@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import {useContext,useState,useEffect} from 'react'
-import MovieProvider from '../../store/movieProvider'
 import TogglebarVissibilityContext from '../../store/toggleBarVisibility'
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
@@ -9,7 +8,6 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 function Header(){
     const [,,Togglevisibility]=useContext(TogglebarVissibilityContext)
-    const [,setmovieid]=useContext(MovieProvider)
     const [search,setsearch]=useState('')
     const [result,setresult]=useState([])     
     useEffect(() => {
@@ -37,8 +35,8 @@ function Header(){
                 <>
                 <div class="search__box" >
                     <box>
-                <Link to="/movieInfo"><img onClick={()=>(setmovieid(result.id))} alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to="/movieInfo"><span onClick={()=>(setmovieid(result.id))} class="search_title">{result.original_title}
+                <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
+                <Link to={`/movieInfo${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ class="search_title">{result.original_title}
                 <br/>RELEASE : {result.release_date}<span class="star">★ {result.vote_average}</span></span></Link>
                 </box>
                 <p>{result.overview}</p></div>

@@ -258,7 +258,6 @@ iframe{
 .movie_img_potrait{
     height: 300px;
     width: 100%;
-    background: url('/src/images/movie_img_potrait.jpg');
     background-size: contain;
 }
 .movieslides__content{

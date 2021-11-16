@@ -5,8 +5,8 @@ const API_URL = BASE_URL+"/discover/movie?sort_by=popularity.desc&"+API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 function Hero(){
     const [movieList, setMovieList] = useState([]);
-    const [videos,setVideos] = useState('580489')
-    const [title,setTitle]=useState(['Venom: Let There Be Carnage','8',`${IMG_URL}/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg`])
+    const [videos,setVideos] = useState('')
+    const [Title,setTitle]=useState(['Venom: Let There Be Carnage','8',`${IMG_URL}/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg`])
     const [vid,setvid]=useState('')
     const [visibility,setvisibility]=useState('hero__overiframe active')
     useEffect(() => {
@@ -20,14 +20,24 @@ function Hero(){
         })
     },[])
     const filtered_movies=movieList.slice(0,3)
+    const video_movie=filtered_movies[0]
+    if (movieList.length>1){
+        var {id,poster_path,title,vote_average}=video_movie}
+    useEffect(()=>{
+            setVideos(id)
+            setTitle([title,vote_average,`${IMG_URL+poster_path}`])
+    },[id,movieList,poster_path,title,vote_average])
+    
     const VIDEO_URL =BASE_URL + '/movie/'+videos+'/videos?'+API_KEY
-    useEffect(() => {
-    fetch(VIDEO_URL).then(res => res.json()).then(videoData => fetch_video(videoData))
-    })
-    function fetch_video(data){
-        const {key}=data.results[1]
-        setvid(`https://www.youtube.com/embed/${key}`)
-    }
+    async function video() {
+        const response=await fetch(VIDEO_URL)
+        const data=await response.json()
+        if (data.results){
+        const {key}=await data.results[1]
+        setvid(`https://www.youtube.com/embed/${key}`)}
+
+        }
+    video()
     function changevideo(id,title,votes,image){
         setVideos(id)
         setTitle([title,votes,`${IMG_URL+image}`])
@@ -36,10 +46,10 @@ function Hero(){
 
         return (
             <>
-        <iframe  class="hero__iframe"src={vid} title={title[0]} frameborder="0"></iframe>
+        <iframe  class="hero__iframe"src={vid} title={Title[0]} frameborder="0"></iframe>
         <div onClick={()=>(setvisibility('hero__overiframe'))} class={visibility}>
-        <img src={title[2]} alt={title[0]}/>
-        <p class="hero__iframe__title">{title[0]}</p>
+        <img src={Title[2]} alt={Title[0]}/>
+        <p class="hero__iframe__title">{Title[0]}</p>
         <p class="hero__iframe__text"></p>
         </div>
         </>)
