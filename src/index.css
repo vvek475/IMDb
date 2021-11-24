@@ -1,0 +1,603 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: rgb(0,0,0,0.9);
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+button{
+    cursor: pointer;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+input{
+    border: 2px solid gold;
+}
+header{
+    background-color: black;
+    width: 100%;
+}
+.container{
+    width: 100%;
+    margin: auto;
+}
+
+.text-medium{
+    font-size: 16px;
+    font-weight: 650;
+}
+.navbar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding:0rem 1rem;
+    justify-content: space-around;
+    margin-bottom: 28px;
+}
+.navbar__toggle-bar{
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.navbar__searchbar{
+    display: none;
+    font-size: 16px;
+    width: 70%;
+    height: 60%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 2rem;
+}
+.watchlist_img{
+    width: 32px;
+}
+.navbar__signin{
+    color: white;
+}
+.signin__button{
+    width: 140px;
+    cursor: pointer;
+    text-align: center;
+}
+.signin__button span{
+    text-transform: uppercase;
+}
+.signin__button span:hover{
+    color: gold;
+}
+.signIn__div{
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    display: none;
+}
+.signIn__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 250px;
+    background-color: black;
+    color: gold;
+}
+.signIn__form input{
+    border-radius: 16px;
+    padding: 5px 20px;
+    width: 250px;
+    height: 28px;
+}
+.signIn__form button{
+    width: 100px;
+    background-color: gold;
+    font-size: 18px;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.search_title{
+    padding: 10px 50px;
+    color: white;
+    width: 300px;
+}
+.searchResult{
+    position:absolute;
+    width: 80vw;
+    height:80vh;
+    z-index: 10;
+    background-color: black;
+    left: 10%;
+    right: 10%;
+    display: none;
+    flex-direction: column;
+    overflow: auto;
+}
+.search__box{
+    color: white;
+    display: flex;
+    width: 100%;
+    min-height:50%;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+.search__box img{
+    width: 150px;
+}
+.search__box span{
+    display: block;
+    font-size: larger;
+    font-weight:bolder ;
+    height: 70%;
+    padding: 0px 20px;
+    margin-top: -200px;
+    margin-left: 200px;
+}
+.search__box box span .star{
+    margin-left: 0px;
+}
+.searchResult .close{
+    cursor: pointer;
+    position: relative;
+    margin: 15px;
+    margin-left: auto;
+    width: 55px;
+    color:black;
+}
+.search__box p{
+    overflow: hidden;
+    width: 700px;
+    height: 80%;
+    font-size: 18px;
+    padding: 20px;
+    border-left: 2px solid gold;
+}
+.toggleBar{
+    top:0;
+    position: fixed;
+    z-index: 100;
+    height: 100vh;
+    background-color: rgb(0,0,0,0.9);
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+.toggleBar__content{
+    height: 80vh;
+}
+.toggleBar__logo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.close{
+    cursor: pointer;
+    color: black;
+    font-size: 28px;
+    background-color: gold;
+    padding :8px 22px;
+    border-radius: 50%;
+    font-weight: 600;
+}
+.toggleBar__anchors{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.toggleBar__anchorlist ul{
+    text-align: center;
+}
+.toggleBar__anchorlist ul li{
+    font-size: 25px;
+    margin-top: 40px;
+    font-weight: 600;
+    color: gold;
+}
+.toggleBar__anchor__svg{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+.hero{
+    height: 70vh;
+    background-color: black;
+    display: flex;
+}
+iframe{
+    width: 100%;
+    height:100%;
+    padding-right: 20px;
+    overflow: hidden;
+}
+.hero__list__box{
+    display: flex;
+    display: none;
+    flex-direction: column;
+    width: 30%;
+}
+.hero__list-box-list-items{
+    color: white;
+    height: 33%;
+    width: 100%;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.hero__overiframe{
+    display: none;
+    height: 70vh;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background:linear-gradient(transparent,transparent,black);
+    pointer-events: none;
+    color: white;
+    display: none;
+    align-items: flex-end;
+    padding:20px 20px;
+}
+.hero__overiframe:hover{
+    display: none;
+}
+.hero__overiframe img{
+    width: 150px;
+}
+.hero__iframe__title{
+    font-size: 35px;
+    padding: 0px 10px;
+    margin-left: 20px;
+    border-left:5px solid gold
+}
+.list-items-image{
+    width: 28%;
+    height: 90%;
+}
+.list-item-title{
+    color: white;
+    cursor: pointer;
+}
+.list-items-content{
+    width: 60%;
+    height: 70%;
+    padding-left: 10px;
+    border-left: 3px solid gold;
+    font-size: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.inTheatres{
+    max-width: 100vw;
+}
+.movieBox{
+    width: 100%;
+}
+.movie_box_overflow{
+    display: flex;
+    overflow: scroll;
+    gap: 20px;
+}
+.movieslides{
+    height: 550px;
+    min-width: 200px;
+    max-width: 200px;
+    background-color: black;
+}
+.movieslides__title{
+    padding: 20px 0px;
+    height: 100px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+.slide__title{
+    font-size: 30px;
+    margin:5rem 0;
+    color: white;
+    padding-left: 10px;
+    border-left: 5px solid gold;
+}
+.movie_img_potrait{
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+}
+.movieslides__content{
+    display: flex;
+    height: 220px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:.5rem 1rem;
+    color: white;
+}
+.star{
+    color:gold !important;
+    font-size: 22px;
+}
+.notify{
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    color: royalblue;
+    padding: 5px;
+    margin-top: 120px;
+    text-align: center;
+    width: 170px;
+    font-size: 20px;
+
+}
+.hollow_star{
+    position: relative;
+    color:royalblue;
+    left: 22%;
+    font-size: 22px;
+}
+.add_watchlist{
+    background-color: rgb(255,255,255,0.1);
+    color: royalblue;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: .5rem 0rem;
+}
+.trailer{
+    cursor: pointer;
+    color: white;
+}
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    height: 60vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__content{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+svg{
+    cursor: pointer;
+    color: gold;
+}
+.iconbox{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__firstline{
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+    cursor: pointer;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-weight: medium;
+}
+.anchors{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.amazon{
+    font-weight: bold;
+    padding: 0 .5rem;
+}
+.footer__lastline{
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+.active{
+    display: flex;
+}
+/* Info page */
+.back2Home{
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    border-left: 5px solid gold;
+    cursor: pointer;
+}
+.movieIframe{
+    color: white;
+    background-color: black;
+    margin-top: 0px;
+    height: 61vh;
+    display: flex;
+    
+}
+.info__iframe{
+    width: 75%;
+    height: 100%;
+    padding: 0;
+}
+.movieInfo__content{
+    height: fit-content;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 50px;
+}
+.movieInfo__title{
+    display: flex;
+    justify-content: flex-start;
+}
+.movieInfo__image{
+    width: 325px;
+    height: fit-content;
+}
+.movieInfo__name{
+    padding: 10px;
+    font-size:30px;
+    max-height: 400px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.movieInfo__name span{
+    padding: 20px 0px
+}
+.goldenletters{
+    display: inline-block;
+    color: gold;
+    width: 150px;
+}
+.movieInfo__overview{
+    border-left:3px solid gold ;
+    font-size: 25px;
+    padding: 50px;
+    max-width: 650px;
+    height: fit-content;
+    color: white;
+}
+.movieInfo__overview::first-letter{
+    padding-left: 100px;
+}
+.movieinfo__slide{
+
+    padding: 50px 0px;
+}
+.cast{
+    display: flex;
+    color: white;
+    background-color: black;
+    overflow: auto;
+    padding:50px 0px;
+}
+.casttitle{
+    color: white;
+    background-color: black;
+    font-size: 30px;
+}
+.casttitle p{
+    border-left: 5px solid gold;
+    margin-left: 50px;
+    padding: 20px;
+}
+.castslide{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.cast_img{
+    max-width: 200px;
+}
+.castcharacter{
+    font-size: 25px;
+    font-weight: 600;
+}
+.castname{
+    font-size: 20px!important;
+}
+/* TRAILER PAGE */
+.trailer__iframe iframe{
+    width: 100vw;
+    height: 100vh;
+    padding-right: 0px; 
+    border: 1px solid black; 
+}
+.trailer__iframe{
+    background-color: black;
+}
+/* WATCHLIST PAGE */
+.watchlist_page{
+    height: 100vh;
+    margin-top: 100px;
+}
+.watchlist_wrap{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.watchlist__warning{
+    color: white;
+    font-size:35px;
+}
+/*Registration Page*/
+.Registration{
+    height: 80vh;
+}
+.Registration form{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.Registration form input{
+    height: 60px;
+    border-radius: 50px;
+    padding: 5px 50px;
+    font-size: 20px;
+    font-weight: 600;
+    width: 80%;
+}
+.Registration form button{
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: black;
+    background-color: gold;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+@media(min-width:760px){ 
+    .container{
+        width: 670px;
+    }
+}
+@media(min-width:980px){ 
+    .container{
+        width: 900px;
+    }
+    .hero__overiframe{
+        display: flex;
+    }
+    .footer{
+        height: 35vh;
+    }
+    .navbar__searchbar{
+        display: block;
+    }
+}
+@media(min-width:1280px){
+    iframe{
+        width: 75%;
+    }
+    .hero__overiframe{
+        width: 55%;
+    }
+    .hero__list__box{
+        display: flex;
+    }   
+    .container{
+        width: 1250px;
+    }
+}
