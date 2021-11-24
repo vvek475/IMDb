@@ -8,6 +8,7 @@ import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 import { useEffect,useState,useContext } from "react";
 import TV from "../components/tvShows/tvShows";
 import signinProvider from "../store/signinProvider";
+
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
 const API_URL = BASE_URL+"/discover/movie?sort_by=popularity.desc&"+API_KEY;
@@ -15,21 +16,21 @@ const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
 
 function Home (){
+  const [user] = useContext(signinProvider.Signin);
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState();
-  
-  useEffect(() => {
-    fetch(API_URL)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      const result=data.results  
-      setMovieList(result);
+ 
+    useEffect(() => {
+      fetch(API_URL)
+        .then((response) => {
+          return response.json();
         })
-      },[])
-      const [user] = useContext(signinProvider.Signin);
+        .then((data) => {
+          const result=data.results  
+          setMovieList(result);
+        })
+    },[])
   
   
     useEffect(() => {
