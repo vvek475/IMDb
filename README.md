@@ -6,16 +6,24 @@ Created account.
 <h2>Features :</h2>
 Can search and surf movies and tv shows and create a watchlist, and add movies to watchlist.
 <br><br><br>
-<!-- <img src='https://github.com/vvek475/Bakeology/blob/main/SC/Hero.jpg'> -->
+<img src='https://i.postimg.cc/FKzznGm8/HERO.jpg'>
 <h2>Before start:</h2>
 1. Clone the repository <br>
 2. Run npm i in CLI<br>
 3. Run npm start<br>
 
 <br><br>
-<!-- <img src='https://github.com/vvek475/Bakeology/blob/main/SC/Categories.jpg'> -->
+<h2>Movie List</h2>
+<img src='https://i.postimg.cc/3x4wH1dv/LIST.jpg'>
 <br>
-<!-- <img src='https://github.com/vvek475/Bakeology/blob/main/SC/Feedback.jpg'> -->
+<h2>Movie Info Page</h2>
+<img src='https://i.postimg.cc/g0Ftgtvk/Info.jpg'>
+<br>
+<h2>WatchList</h2>
+<img src='https://i.postimg.cc/PqQy2XX2/Watchlist.jpg'>
+<br>
+<h2>SignUp Page</h2>
+<img src='https://i.postimg.cc/QVZK27S5/SignUp.jpg'>
 <h2>Tour :</h2>
 1. On open scroll through home page to surf movie slides and trending trailers.<br>
 2. Click movie title to view info of the movie.<br>
