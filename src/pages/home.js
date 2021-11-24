@@ -18,18 +18,18 @@ function Home (){
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState();
-  const [user] = useContext(signinProvider.Signin);
- 
-    useEffect(() => {
-      fetch(API_URL)
-        .then((response) => {
-          return response.json();
+  
+  useEffect(() => {
+    fetch(API_URL)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const result=data.results  
+      setMovieList(result);
         })
-        .then((data) => {
-          const result=data.results  
-          setMovieList(result);
-        })
-    },[])
+      },[])
+      const [user] = useContext(signinProvider.Signin);
   
   
     useEffect(() => {
