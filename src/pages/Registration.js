@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import {useState,useContext,useEffect} from 'react'
-import signinProvider  from "../store/signinProvider";
+import user_array  from "../store/signinProvider";
 
 export default function Registration(props){
-    const [user,setuser]=useContext(signinProvider.Signin)
+    const [user,setuser]=useContext(user_array.Signin)
     const [fname,setfname]=useState()
     const [lname,setlname]=useState()
     const [username,setusername]=useState()

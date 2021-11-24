@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import { useContext } from 'react/cjs/react.development'
-import  signinProvider  from '../../store/signinProvider'
+import  user_array  from '../../store/signinProvider'
 export default function SignIn(props){
-    const [,setuser] = useContext(signinProvider.Signin)
+    const [,setuser] = useContext(user_array.Signin)
     const [username,setusername] = useState('')
     const [pwd,setpwd] = useState('')
     const [signinvisibility,setsigninvisibility] = useState(false)

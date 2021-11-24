@@ -7,7 +7,7 @@ import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 
 import { useEffect,useState,useContext } from "react";
 import TV from "../components/tvShows/tvShows";
-import signinProvider from "../store/signinProvider";
+import user_array from "../store/signinProvider";
 
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
@@ -16,7 +16,7 @@ const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
 
 function Home (){
-  /* const {user} = useContext(signinProvider.Signin); */
+  const {user} = useContext(user_array.Signin);
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState([]);
@@ -57,7 +57,7 @@ function Home (){
   
     const [movies,setMovies]=useState([])
 
-    /* useEffect(()=>{
+    useEffect(()=>{
         user && fetch("https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/",{
             headers:{'Content-Type':'application/json',
        'Authorization':`Token ${user.token}`}})
@@ -68,7 +68,7 @@ function Home (){
         setMovies(data);
       })
       
-    },[user]) */
+    },[user])
     const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies}
     const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies}
     const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':''}
