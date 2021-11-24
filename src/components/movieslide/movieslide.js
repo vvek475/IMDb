@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import {useState,useEffect,useContext,useRef} from "react"
-import { Signin } from "../../store/signinProvider";
+import signinProvider from "../../store/signinProvider";
 
 function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
-    const [user] = useContext(Signin)
+    const [user] = useContext(signinProvider.Signin)
     const [isbooked,setisbooked]=useState('+ Watchlist')
     const [notify,setnotify]=useState()
     const id = useRef()

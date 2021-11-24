@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Trailer from "./pages/trailer";
 import Watchlist from "./pages/watchlist";
-import Signinprovider from "./store/signinProvider";
+import signinProvider from "./store/signinProvider";
 import Registration from "./pages/Registration";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
     <Router>
-      <Signinprovider>
+      <signinProvider.Signinprovider>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/movieInfo/:id" component={Info} />
@@ -24,7 +24,7 @@ function App() {
           <Route path="/watchlist" component={Watchlist}/>
           <Route path="/Registeration" component={Registration}/>
         </Switch>
-      </Signinprovider>
+      </signinProvider.Signinprovider>
     </Router>
     </>
   )

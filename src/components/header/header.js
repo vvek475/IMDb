@@ -2,7 +2,7 @@ import { Link,useLocation } from "react-router-dom";
 import {useContext,useState,useEffect} from 'react'
 import TogglebarVissibilityContext from '../../store/toggleBarVisibility'
 import SignIn from "../Signin/signin";
-import { Signin } from "../../store/signinProvider";
+import signinProvider from "../../store/signinProvider";
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
 const SEARCH_URL=`${BASE_URL}/search/movie?${API_KEY}&query=`
@@ -13,7 +13,7 @@ function Header(){
     const [search,setsearch]=useState()
     const [result,setresult]=useState([])  
     const [signinvisibility,setsigninvisibility]=useState(false)
-    const [user,setuser]=useContext(Signin)
+    const [user,setuser]=useContext(signinProvider.Signin)
     const location=useLocation()
     useEffect(() => {
         search && fetch(SEARCH_URL+search)

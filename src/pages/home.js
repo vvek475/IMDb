@@ -7,7 +7,7 @@ import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 
 import { useEffect,useState } from "react";
 import TV from "../components/tvShows/tvShows";
-import { Signin } from "../store/signinProvider";
+import signinProvider from "../store/signinProvider";
 import { useContext } from "react/cjs/react.development";
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
@@ -19,7 +19,7 @@ function Home (){
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState();
-  const [user] = useContext(Signin);
+  const [user] = useContext(signinProvider.Signin);
  
     useEffect(() => {
       fetch(API_URL)

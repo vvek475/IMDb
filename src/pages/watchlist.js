@@ -1,10 +1,10 @@
 import { useEffect,useState } from "react";
 import { useContext } from "react/cjs/react.development";
 import Watchcomponent from "../components/watchcomponent/watchcomponent";
-import { Signin } from "../store/signinProvider";
+import  signinProvider  from "../store/signinProvider";
 import { Link } from "react-router-dom";
 export default function Watchlist(){
-    const [user] = useContext(Signin)
+    const [user] = useContext(signinProvider.Signin)
     const [movies,setMovies]=useState([])
     useEffect(()=>{
         user && fetch("https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/",{
