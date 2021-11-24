@@ -16,10 +16,10 @@ const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
 
 function Home (){
-    const [user] = useContext(Signin);
-    const [movieList, setMovieList] = useState([]);
-    const [trendingList,setTrending]=useState([]);
-    const [tv,settv]=useState();
+  const [movieList, setMovieList] = useState([]);
+  const [trendingList,setTrending]=useState([]);
+  const [tv,settv]=useState();
+  const [user] = useContext(Signin);
  
     useEffect(() => {
       fetch(API_URL)
