@@ -19,7 +19,7 @@ function Home (){
   const [user] = useContext(signinProvider.Signin);
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
-  const [tv,settv]=useState();
+  const [tv,settv]=useState([]);
  
     useEffect(() => {
       fetch(API_URL)
