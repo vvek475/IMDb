@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useContext } from 'react/cjs/react.development'
 import  user_array  from '../../store/signinProvider'
 export default function SignIn(props){
-    const [,setuser] = useContext(user_array.Signin)
+    const [user,setuser] = useContext(user_array.Signin)
     const [username,setusername] = useState('')
     const [pwd,setpwd] = useState('')
     const [signinvisibility,setsigninvisibility] = useState(false)
@@ -28,7 +28,7 @@ export default function SignIn(props){
     return(
         <div className={signinvisibility? 'signIn__div':props.className}>
             <form className="signIn__form" onSubmit={handleSubmit}>
-                <h2>SIGNIN</h2>
+               {!user && <h2>SIGNIN</h2>}
             <input placeholder="NAME" value={username} onChange={(e)=>setusername(e.target.value)}/>
             <input placeholder="PASSWORD" type="password" value={pwd} onChange={(e)=>setpwd(e.target.value)}/>
             <button type="submit" onClick={()=>setsigninvisibility(true)}>SUBMIT</button> 
