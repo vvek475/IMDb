@@ -7,5 +7,5 @@ function Signinprovider({children}){
         <Signin.Provider value={[user,setuser]}> {children}</Signin.Provider>
     )
 }
-const user_signin={ Signin, Signinprovider }
-export default user_signin;
+
+export default { Signin, Signinprovider };

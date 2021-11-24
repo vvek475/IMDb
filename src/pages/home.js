@@ -5,10 +5,9 @@ import Intheatres from "../components/inTheatres/intheatres";
 import ToggleBar from "../components/ToggleBar/togglebar";
 import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 
-import { useEffect,useState } from "react";
+import { useEffect,useState,useContext } from "react";
 import TV from "../components/tvShows/tvShows";
 import signinProvider from "../store/signinProvider";
-import { useContext } from "react/cjs/react.development";
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
 const API_URL = BASE_URL+"/discover/movie?sort_by=popularity.desc&"+API_KEY;
