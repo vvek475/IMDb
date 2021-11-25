@@ -14,6 +14,7 @@ body{
 }
 button{
     cursor: pointer;
+    border: none;
 }
 a{
     color: gold;
@@ -22,7 +23,7 @@ input:focus, textarea:focus, select:focus{
     outline: none;
 }
 input{
-    border: 2px solid gold;
+    border-bottom: 2px solid gold;
 }
 header{
     background-color: black;
@@ -33,7 +34,7 @@ header{
     margin: auto;
 }
 .header_logo{
-    width: 120px;
+    width: 90px;
 }
 
 .text-medium{
@@ -44,7 +45,7 @@ header{
     height: 60px;
     display: flex;
     align-items: center;
-    padding:0rem 1rem;
+    padding:0rem .5rem;
     justify-content: space-around;
     margin-bottom: 28px;
 }
@@ -70,6 +71,12 @@ header{
     background-color: white;
     border-radius: 5px;
     padding: 0 2rem;
+}
+.navbar input{
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0px;
+    border-bottom: 2px solid white!important;
 }
 .watchlist_img{
     display: none;
@@ -101,14 +108,14 @@ header{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 300px;
-    height: 250px;
+    width: 350px;
+    height: 300px;
     background-color: black;
     color: gold;
 }
 .signIn__form input{
-    border-radius: 16px;
-    padding: 5px 20px;
+    font-size: 18px;
+    padding: 5px 10px;
     width: 250px;
     height: 28px;
 }
@@ -200,15 +207,20 @@ header{
     margin-top: 30px;
 }
 .toggleBar{
+    padding-top:50px ;
     top:0;
     position: fixed;
     z-index: 100;
     height: 100vh;
     background-color: rgb(0,0,0,0.9);
     width: 100%;
-    display: none;
+    margin-top: -100vh;
     justify-content: center;
     align-content: center;
+    transition: 1s linear;
+}
+.slide{
+    margin: 0;
 }
 
 .toggleBar__content{
@@ -227,11 +239,15 @@ header{
     border-radius: 50%;
 }
 .search_bar_toggle{
+    background-color: white ;
     z-index: 10;
     height: 50px;
     position: absolute;
-    width: 100vh;
-    display: none;
+    width: 0;
+    transition: .8s linear;right: 0;
+}
+.active_width{
+    width: 100%;
 }
 .toggleBar__anchors{
     height: 80%;
@@ -243,10 +259,11 @@ header{
 }
 .toggleBar__anchorlist ul{
     text-align: center;
+    margin-top: 80px;
 }
 .toggleBar__anchorlist ul li{
     font-size: 25px;
-    margin-top: 40px;
+    margin-top: 50px;
     font-weight: 600;
     color: gold;
 }
@@ -607,11 +624,16 @@ svg{
 }
 .Registration form input{
     height: 60px;
-    border-radius: 50px;
-    padding: 5px 50px;
+
+    padding: 5px 10px;
     font-size: 20px;
     font-weight: 600;
     width: 80%;
+}
+input{
+    border: none;
+    border-bottom: 2px solid gold;
+    background-color: transparent;
 }
 .Registration form button{
     padding: 10px 20px;

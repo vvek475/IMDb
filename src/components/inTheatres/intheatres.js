@@ -12,10 +12,10 @@ function Intheatres({moviearray,title,watchlist}){
             <h2 className="slide__title">{title}</h2>
             <div className='movieBox'>
                 <div className="movie_box_overflow">
-                {moviearray?moviearray.map((movie)=>(
-                    movie.original_title && <MovieSlide key={movie.id} watchlist={watchlist} title={movie.original_title} 
+                {moviearray && moviearray.map((movie)=>(
+                    movie.original_title && movie.vote_average>1 && <MovieSlide key={movie.id} watchlist={watchlist} title={movie.original_title} 
                     domain={title} movie_id={movie.id} id_array={movie_id_array} image={IMG_URL+movie.poster_path} vote={movie.vote_average}/>))
-                :''}
+                }
                 </div>
             </div>
         </section>

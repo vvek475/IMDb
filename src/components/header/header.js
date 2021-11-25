@@ -31,7 +31,7 @@ function Header(){
             <img alt="logo" className="header_logo" src="https://i.postimg.cc/hGCGtFS2/imgbin-ticket-cinema-film-png.png"/>
             
             <span onClick={Togglevisibility} className="navbar__toggle-bar">&#9776; MENU</span>
-            <input onChange={(e)=>setsearch(e.target.value)} placeholder="SEARCH" className="navbar__searchbar"/>
+            <input onChange={(e)=>setsearch(e.target.value)} placeholder='SEARCH' className="navbar__searchbar"/>
             <Link to="/watchlist"><img className="watchlist_img" alt="watchlist" title="WATCHLIST" src="https://i.postimg.cc/rpBgjgRN/Bookmark.png"/>
             </Link><div className="signin__button">{!user?<span className="navbar__signin text-medium" 
             onClick={()=>setsigninvisibility(signinvisibility?false:true)}>SignIn </span>:

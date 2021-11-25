@@ -78,7 +78,7 @@ function MovieInfo(props){
                     <div className='movieBox'></div>
                     <div className="movie_box_overflow movieinfo__slide container">
                         {similar && similar.map((movie)=>{
-                            return  <MovieSlide domain='Similar Movies' title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
+                            return  <MovieSlide domain='Popular TV Shows' title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
                         })}
                     </div>
                 </section>
