@@ -1,5 +1,4 @@
-import { useEffect,useState } from "react";
-import { useContext } from "react/cjs/react.development";
+import { useEffect,useState,useContext } from "react";
 import Watchcomponent from "../components/watchcomponent/watchcomponent";
 import  user_array  from "../store/signinProvider";
 import { Link } from "react-router-dom";
