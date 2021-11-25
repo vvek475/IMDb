@@ -26,9 +26,8 @@ function ToggleBar(){
             <div className="toggleBar__content container">
             <div className="toggleBar__logo">
             <img class="search_logo" alt="search" onClick={()=>setsearchvis(true)} src="https://i.postimg.cc/9f8QrGBd/search-logo.png"/>
-                    <input  onChange={(e)=>setsearch(e.target.value)} className={`search_bar_toggle ${searchvis?'active_width':''}`} />
-                    <span onClick={()=>{setsearchvis(false);setresult();setsearch()}} className={`close close_toggle ${searchvis?'active_block':''}`}>&#x2716;</span>
-                    {console.log(result)}
+                    <p className="togglebae_slider_box"><input  onChange={(e)=>setsearch(e.target.value)} className={`search_bar_toggle ${searchvis?'active_width':''}`} />
+                    <span onClick={()=>{setsearchvis(false);setresult();setsearch()}} className={`close close_toggle ${searchvis?'active_block':''}`}>&#x2716;</span></p>
                 <span onClick={TogglebarVissibility} className="close">&#9776;</span>
             </div>
             <div className={`searchResult searhResult_toggle ${result?(result.length >0?'active':''):''}`}>
