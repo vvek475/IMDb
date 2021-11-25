@@ -28,7 +28,7 @@ function Header(){
     return (
         <header>
         <div className="navbar">
-            <img alt="logo" className="header_logo" src="https://i.postimg.cc/LXZrty5R/movie-white.png"/>
+            <img alt="logo" className="header_logo" src="https://i.postimg.cc/hGCGtFS2/imgbin-ticket-cinema-film-png.png"/>
             
             <span onClick={Togglevisibility} className="navbar__toggle-bar">&#9776; MENU</span>
             <input onChange={(e)=>setsearch(e.target.value)} placeholder="SEARCH" className="navbar__searchbar"/>
