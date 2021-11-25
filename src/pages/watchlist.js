@@ -6,7 +6,7 @@ export default function Watchlist(){
     const [user] = useContext(user_array.Signin)
     const [movies,setMovies]=useState([])
     useEffect(()=>{
-        user && fetch("https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/",{
+        user && fetch("https://movie-data-app5.herokuapp.com/user/movies/watchList/",{
             headers:{'Content-Type':'application/json',
        'Authorization':`Token ${user.token}`}})
        .then((body) => {

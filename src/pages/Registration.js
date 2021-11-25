@@ -17,7 +17,7 @@ export default function Registration(props){
 
     async function handlesubmit(e){
         e.preventDefault()
-        await fetch('https://imdb-fullstack-app.herokuapp.com/user/register/',{
+        await fetch('https://movie-data-app5.herokuapp.com/user/register/',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -30,7 +30,7 @@ export default function Registration(props){
         resultSubmit()
 }
         async function resultSubmit(){
-        const response=await fetch('https://imdb-fullstack-app.herokuapp.com/user/login_user',{
+        const response=await fetch('https://movie-data-app5.herokuapp.com/user/login',{
             method:"POST",
             body:JSON.stringify({
                 "username":username,

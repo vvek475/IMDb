@@ -19,7 +19,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
     async function handlesubmit(e){
         e.preventDefault()
             setisbooked('Added')
-              await fetch("https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/",{
+              await fetch("https://movie-data-app5.herokuapp.com/user/movies/watchList/",{
           method:"POST",
           body:JSON.stringify({"user": user.user.id,
           "movie_id": movie_id,
@@ -33,7 +33,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
         async function handlesubmit_delete(){
             
             setisbooked('+ Watchlist')
-           await fetch("https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/",{
+           await fetch("https://movie-data-app5.herokuapp.com/user/movies/watchList/",{
             headers:{'Content-Type':'application/json',
        'Authorization':`Token ${user.token}`}})
        .then((body) => {
@@ -48,7 +48,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
                 id.current=element.id} 
         })
       })
-            fetch(`https://imdb-fullstack-app.herokuapp.com/user/movies/watchList/${id.current}/`,{
+            fetch(`https://movie-data-app5.herokuapp.com/user/movies/watchList/${id.current}/`,{
                 method:"DELETE",
                 headers:{
                     'Authorization':`Token ${user.token}`}

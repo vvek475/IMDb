@@ -9,7 +9,7 @@ export default function SignIn(props){
     // 'http://127.0.0.1:8000/user/login_user'
     async function handleSubmit(e){
         e.preventDefault()
-        const response =await  fetch('https://imdb-fullstack-app.herokuapp.com/user/login_user',{
+        const response =await  fetch('https://movie-data-app5.herokuapp.com/user/login',{
             method:"POST",
             body:JSON.stringify({
                 "username":username,
