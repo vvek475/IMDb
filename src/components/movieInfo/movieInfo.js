@@ -1,5 +1,4 @@
 import { useState ,useEffect} from "react";
-import { Link } from "react-router-dom";
 import Cast from "../cast/cast";
 import MovieSlide from "../movieslide/movieslide"
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
@@ -48,7 +47,6 @@ function MovieInfo(props){
     },[movieid])
     return (
         <>
-        <Link to="/"><div className="back2Home container">Back To Home</div></Link>
             {movieinfo &&
         <div className="movieIframe container">
             <iframe className="info__iframe"src={vid} title='Trailer' frameBorder="0"></iframe> 
@@ -80,7 +78,7 @@ function MovieInfo(props){
                     <div className='movieBox'></div>
                     <div className="movie_box_overflow movieinfo__slide container">
                         {similar && similar.map((movie)=>{
-                            return  <MovieSlide title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
+                            return  <MovieSlide domain='Similar Movies' title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
                         })}
                     </div>
                 </section>

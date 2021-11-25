@@ -61,7 +61,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
             <img className="movie_img_potrait" src={image} alt={title}/>
             <div className="movieslides__content">
                 <div clas="rating"><span className="star">★</span> {vote} <span className="hollow_star">☆</span></div>
-                {domain==='Popular TV Shows'?<p className="movieslides__title">{title}</p>:
+                {domain==='Popular TV Shows' || 'Similar Movies'?<p className="movieslides__title">{title}</p>:
                 <Link to={`/movieInfo/${movie_id}`} >
                     <p  className="movieslides__title">{title}</p>
                 </Link>}
@@ -73,7 +73,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
 
                 {notify && <span onClick={()=>setnotify()} className="notify">{notify}</span>}
                 <br/>
-                {domain==='Popular TV Shows'?<p  className="trailer">⏵ Trailer</p>
+                {domain==='Popular TV Shows' || 'Similar Movies'?<p  className="trailer">⏵ Trailer</p>
                 :
                 <Link to={`/trailer/${movie_id}`} >
                     <p  className="trailer">⏵ Trailer</p>

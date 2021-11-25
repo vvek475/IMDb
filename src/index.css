@@ -15,6 +15,9 @@ body{
 button{
     cursor: pointer;
 }
+a{
+    color: gold;
+}
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
@@ -155,11 +158,14 @@ header{
     margin-top: -200px;
     margin-left: 200px;
 }
+.search__box__toggle{
+    width: 100%;
+    overflow: hidden;
+}
 .search__box__toggle span{
-    display: inline;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 0px;
+    max-width: 35%!important;
+    font-size: 12px!important;
+    margin-left: 150px;
 }
 .search__box box span .star{
     margin-left: 0px;
