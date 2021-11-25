@@ -8,7 +8,6 @@ function Hero(){
     const [videos,setVideos] = useState('')
     const [Title,setTitle]=useState(['','',``])
     const [vid,setvid]=useState('')
-    const [visibility,setvisibility]=useState('hero__overiframe active')
     useEffect(() => {
         fetch(API_URL)
         .then((response) => {
@@ -47,7 +46,7 @@ function Hero(){
         return (
             <>
             <iframe  className="hero__iframe"src={vid} title={Title[0]} frameBorder="0"></iframe>
-            <div onClick={()=>(setvisibility('hero__overiframe'))} className={visibility}>
+            <div  className='hero__overiframe'>
                 <img src={Title[2]} alt={Title[0]}/>
                 <p className="hero__iframe__title">{Title[0]}</p>
                 <p className="hero__iframe__text"></p>
@@ -65,7 +64,6 @@ function Hero(){
                 <div className="list-items-content">
                     <h4 onClick={()=>(changevideo(movies.id,movies.title,movies.vote_average,movies.poster_path))}className="list-item-title">{movies.title} <br/><br/>
                      </h4><h4><span className="star">★</span>&nbsp;&nbsp;&nbsp; {movies.vote_average}<br/></h4>
-                    {/* {movies.overview} */}
                 </div>
             </span>
             ))}

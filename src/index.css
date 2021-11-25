@@ -42,12 +42,20 @@ header{
     justify-content: space-around;
     margin-bottom: 28px;
 }
+.navbar svg{
+    display: none;
+}
 .navbar__toggle-bar{
     color: white;
     font-size: 18px;
     cursor: pointer;
 }
-
+.search_logo{
+    display: block;
+    width: 40px;
+    height: fit-content;
+    margin-left: 20px;
+}
 .navbar__searchbar{
     display: none;
     font-size: 16px;
@@ -58,7 +66,7 @@ header{
     padding: 0 2rem;
 }
 .watchlist_img{
-
+    display: none;
     width: 32px;
 }
 .navbar__signin{
@@ -80,6 +88,7 @@ header{
     right: 20px;
     top: 80px;
     display: none;
+    z-index: 10;
 }
 .signIn__form{
     display: flex;
@@ -130,6 +139,10 @@ header{
     border: 1px solid black;
     justify-content: space-between;
 }
+.search__box box{
+    display: flex;
+    flex-direction: column!important;
+}
 .search__box img{
     width: 150px;
 }
@@ -142,8 +155,21 @@ header{
     margin-top: -200px;
     margin-left: 200px;
 }
+.search__box__toggle span{
+    display: inline;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
 .search__box box span .star{
     margin-left: 0px;
+}
+.close_toggle{
+    display: none;
+    position: absolute;
+    right: 0;
+    font-size: 35px!important;
+    z-index: 20;
 }
 .searchResult .close{
     cursor: pointer;
@@ -151,7 +177,7 @@ header{
     margin: 15px;
     margin-left: auto;
     width: 55px;
-    color:black;
+    color:gold;
 }
 .search__box p{
     overflow: hidden;
@@ -160,6 +186,9 @@ header{
     font-size: 18px;
     padding: 20px;
     border-left: 2px solid gold;
+}
+.searhResult_toggle{
+    margin-top: 30px;
 }
 .toggleBar{
     top:0;
@@ -183,12 +212,17 @@ header{
 }
 .close{
     cursor: pointer;
-    color: black;
+    color: gold;
+    padding-right: 20px;
     font-size: 28px;
-    background-color: gold;
-    padding :8px 22px;
     border-radius: 50%;
-    font-weight: 600;
+}
+.search_bar_toggle{
+    z-index: 10;
+    height: 50px;
+    position: absolute;
+    width: 100vh;
+    display: none;
 }
 .toggleBar__anchors{
     height: 80%;
@@ -220,7 +254,6 @@ header{
 iframe{
     width: 100%;
     height:100%;
-    padding-right: 20px;
     overflow: hidden;
 }
 .hero__list__box{
@@ -239,28 +272,26 @@ iframe{
     justify-content: space-around;
 }
 .hero__overiframe{
-    display: none;
+    display: flex;
     height: 70vh;
-    width: 100%;
+    width: 90%;
     position: absolute;
     z-index: 2;
     background:linear-gradient(transparent,transparent,black);
     pointer-events: none;
     color: white;
-    display: none;
     align-items: flex-end;
     padding:20px 20px;
 }
-.hero__overiframe:hover{
-    display: none;
-}
 .hero__overiframe img{
     width: 150px;
+    display: inherit;
 }
 .hero__iframe__title{
-    font-size: 35px;
+    font-size: 18px;
     padding: 0px 10px;
     margin-left: 20px;
+    display: inherit;
     border-left:5px solid gold
 }
 .list-items-image{
@@ -416,6 +447,9 @@ svg{
 .active{
     display: flex;
 }
+.active_block{
+    display: block;
+}
 /* Info page */
 .back2Home{
     color: white;
@@ -435,34 +469,44 @@ svg{
     display: flex;
     
 }
+.movieIframe iframe{
+    display: none;
+}
 .info__iframe{
     width: 75%;
     height: 100%;
     padding: 0;
 }
 .movieInfo__content{
+    margin-top: 150px;
+    width: 100vw;
     height: fit-content;
     color: white;
     background-color: black;
-    display: flex;
+    display: block;
     justify-content: space-between;
     padding: 100px 50px;
+    font-size: 12px;
+    height: fit-content;
 }
 .movieInfo__title{
     display: flex;
     justify-content: flex-start;
 }
 .movieInfo__image{
-    width: 325px;
+    width: 100%;
     height: fit-content;
 }
 .movieInfo__name{
-    padding: 10px;
-    font-size:30px;
+
+    font-size:15px;
     max-height: 400px;
     margin-left: 50px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 .movieInfo__name span{
     padding: 20px 0px
@@ -473,12 +517,12 @@ svg{
     width: 150px;
 }
 .movieInfo__overview{
-    border-left:3px solid gold ;
-    font-size: 25px;
-    padding: 50px;
-    max-width: 650px;
+    margin-top: 100px;
+    padding-top: 50px;
+    max-width: 100%;
     height: fit-content;
     color: white;
+    border-top: 2px solid gold;
 }
 .movieInfo__overview::first-letter{
     padding-left: 100px;
@@ -578,27 +622,53 @@ svg{
     .container{
         width: 900px;
     }
-    .hero__overiframe{
-        display: flex;
-    }
+
     .footer{
         height: 35vh;
+    }
+    .movieIframe iframe{
+        display: flex;
+    }
+}
+@media(min-width:1280px){
+    .navbar svg{
+        display: inline;
+    }
+    iframe{
+        width: 75%;
+    }
+    .search_logo{
+        display: none;
     }
     .navbar__searchbar{
         display: block;
     }
-}
-@media(min-width:1280px){
-    iframe{
-        width: 75%;
-    }
     .hero__overiframe{
         width: 55%;
+    }
+    .hero__iframe__title{
+        font-size: 32px;
     }
     .hero__list__box{
         display: flex;
     }   
     .container{
         width: 1250px;
+    }
+    .movieInfo__content{
+        display: flex;
+        font-size: 22px;
+    }
+    .movieInfo__name{
+        padding: 10px;
+        font-size: 24px;
+    }
+    .movieInfo__image{
+        width: 325px;
+    }
+    .movieInfo__overview{
+        padding: 50px;
+        max-width: 650px;
+        border-left:3px solid gold ;
     }
 }

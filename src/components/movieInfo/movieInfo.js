@@ -49,15 +49,15 @@ function MovieInfo(props){
     return (
         <>
         <Link to="/"><div className="back2Home container">Back To Home</div></Link>
-            {movieinfo?
+            {movieinfo &&
         <div className="movieIframe container">
             <iframe className="info__iframe"src={vid} title='Trailer' frameBorder="0"></iframe> 
                 <div className='movieInfo__title'>
                     <img className="movieInfo__image" alt={movieinfo.original_title} src={IMG_URL+movieinfo.poster_path}/>
                 </div>
-      </div>  :''}
+      </div>}
 
-        {movieinfo?<div className="movieInfo__content container">
+        {movieinfo  && <div className="movieInfo__content container">
                     <p className="movieInfo__name">
                     <span><div className='goldenletters'> Title  </div>:&nbsp; {movieinfo.original_title} </span>
                     <span> <div className='goldenletters'>Rating  </div>:&nbsp; {movieinfo.vote_average}</span> 
@@ -68,18 +68,20 @@ function MovieInfo(props){
                 <div className="movieInfo__overview">
                     {movieinfo.overview}
                 </div>
-                </div>:''}
+                </div>}
                 <h3 className="casttitle container"><p>Cast</p></h3>
                 <div className='cast container'>
-                    {cast?cast.map((cast)=><Cast value={cast}/>):''}
+                    {cast && cast.map((cast)=>
+                    
+                    <Cast value={cast}/>)}
                 </div>
                 <section className="inTheatres container">
                     <h2 className="slide__title">Similar Movies</h2>
                     <div className='movieBox'></div>
                     <div className="movie_box_overflow movieinfo__slide container">
-                        {similar?similar.map((movie)=>{
+                        {similar && similar.map((movie)=>{
                             return  <MovieSlide title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
-                        }):''}
+                        })}
                     </div>
                 </section>
         </>

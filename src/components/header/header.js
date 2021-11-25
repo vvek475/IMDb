@@ -54,7 +54,7 @@ function Header(){
 
         <SignIn className={`signIn__div ${signinvisibility?'active':''}`}/>
         <div className={`searchResult ${result?(result.length >0?'active':''):''}`}>
-            <div className="close" onClick={()=>(setresult([]))}>X</div>
+            <div className="close" onClick={()=>(setresult([]))}>&#x2716;</div>
             {result && result.length >0 && result.map((result)=>(
                 result.poster_path && result.release_date && result.vote_average && result.original_title &&<>
                 <div className="search__box" >
