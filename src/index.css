@@ -69,7 +69,6 @@ header{
     width: 70%;
     height: 60%;
     background-color: white;
-    border-radius: 5px;
     padding: 0 2rem;
 }
 .navbar input{
@@ -249,10 +248,21 @@ header{
     font-size: 18px;
     transition: .8s linear;
 }
-.togglebae_slider_box{
+.togglebar_slider_box{
     width: 100vh;
     display: flex;
     justify-content: center;
+}
+.togglebar_slider_box input{
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+}
+.togglebar_slider_box .close{
+    font-weight: 400;
+    opacity: 80%;
+    color:black;
 }
 .active_width{
     width: 100%;
@@ -279,6 +289,23 @@ header{
     display: flex;
     justify-content: space-between;
     width: 500px;
+}
+.error_block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    top: 20vh;
+    left: 10vw;
+    z-index: 25;
+    position: fixed;
+    background-color: gold;
+    font-weight: 600;
+    width: 80vw;
+    height: 50vh;
+    padding:150px;
 }
 .hero{
     height: 70vh;
@@ -669,6 +696,7 @@ input{
     .movieIframe iframe{
         display: flex;
     }
+
 }
 @media(min-width:1280px){
     .navbar svg{
@@ -680,11 +708,17 @@ input{
     .search_logo{
         display: none;
     }
+    .header_logo{
+        width: 120px;
+    }   
     .navbar__searchbar{
         display: block;
     }
     .hero__overiframe{
         width: 55%;
+    }
+    .watchlist_img{
+        display: block;
     }
     .hero__iframe__title{
         font-size: 32px;

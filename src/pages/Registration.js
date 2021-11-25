@@ -8,6 +8,7 @@ export default function Registration(props){
     const [lname,setlname]=useState()
     const [username,setusername]=useState()
     const [password,setpassword]=useState()
+    const [error,seterror]=useState()
 
     useEffect(() => {
         if (user && props.location) {
@@ -17,7 +18,16 @@ export default function Registration(props){
 
     async function handlesubmit(e){
         e.preventDefault()
-        await fetch('https://movie-data-app5.herokuapp.com/user/register/',{
+        if (!username || !password || !fname || !lname){
+            seterror('Please fill the empty fields')
+            return
+        }
+        else if(password.length<8){
+            seterror('Password to short, Must have atleast 9 characters')
+            return
+        }
+        
+        const response = await fetch('https://movie-data-app5.herokuapp.com/user/register/',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -27,6 +37,10 @@ export default function Registration(props){
                 "password":password
             })
         })
+        if (response.status ===500 ){
+            seterror(`Username already taken! Please try ${username}123 or ${username+lname}`)
+        }
+        console.log(response)
         resultSubmit()
 }
         async function resultSubmit(){
@@ -48,6 +62,7 @@ export default function Registration(props){
             <Link to="/"><div className="back2Home container">Back To Home</div></Link>
             <br/>
             <div className="back2Home container">REGISTRATION</div>
+            {error && <div onClick={()=>seterror(false)} class={`error_block`}>{error}</div>}
             <div className="Registration container">
                 <form onSubmit={handlesubmit}>
                     <input type='text' value={fname} onChange={(e)=>setfname(e.target.value)} placeholder='FIRST NAME'/>

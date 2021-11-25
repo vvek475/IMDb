@@ -67,6 +67,7 @@ function MovieInfo(props){
                     {movieinfo.overview}
                 </div>
                 </div>}
+                    <br/>
                 <h3 className="casttitle container"><p>Cast</p></h3>
                 <div className='cast container'>
                     {cast && cast.map((cast)=>
