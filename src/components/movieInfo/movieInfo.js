@@ -19,12 +19,10 @@ function MovieInfo(props){
     var mainDiv=document.getElementById('similar_movies')
 
     function scrollright() {
-        console.log('prev')
         mainDiv.scrollLeft -= 400;
      }
      
      function scrollleft() {
-        console.log('next')
         mainDiv.scrollLeft += 400;
      }
 
@@ -92,7 +90,6 @@ function MovieInfo(props){
                     <button onClick={scrollright} className="prev_button similar_btnp">🢔</button>
                     <div id="similar_movies" className="movie_box_overflow movieinfo__slide container">
                         {similar && similar.map((movie)=>{
-                            console.log(movie.id,'si')
                             return  <MovieSlide title={movie.original_title} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
                         })}
                     </div>

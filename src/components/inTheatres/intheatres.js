@@ -8,12 +8,10 @@ function Intheatres({moviearray,title,watchlist}){
     })
     var mainDiv=document.getElementById(title)
     function scrollright() {
-        console.log('prev')
         mainDiv.scrollLeft -= 400;
      }
      
      function scrollleft() {
-        console.log('next')
         mainDiv.scrollLeft += 400;
      }
     return(

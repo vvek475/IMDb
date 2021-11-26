@@ -392,6 +392,7 @@ iframe{
     background-color: black;
 }
 .movieBox .prev_button,.next_button{
+    display: none;
     font-size: 50px;
     color: black;
     background-color: rgb(245, 245, 245,0.5) ;
@@ -707,6 +708,9 @@ input{
 @media(min-width:760px){ 
     .container{
         width: 670px;
+    }
+    .movieBox .prev_button,.next_button{
+        display: block;
     }
 }
 @media(min-width:980px){ 

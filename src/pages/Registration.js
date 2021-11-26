@@ -44,7 +44,6 @@ export default function Registration(props){
         if (response.status ===500 ){
             seterror(`Username already taken! Please try ${username}123 or ${username+lname}`)
         }
-        console.log(response)
         resultSubmit()
 }
         async function resultSubmit(){

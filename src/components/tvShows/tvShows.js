@@ -5,12 +5,11 @@ function TV({moviearray,title}){
     var mainDiv=document.getElementById('movieBox__tv')
 
     function scrollright() {
-        console.log('prev')
+
         mainDiv.scrollLeft -= 400;
      }
      
      function scrollleft() {
-        console.log('next')
         mainDiv.scrollLeft += 400;
      }
     return(
