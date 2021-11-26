@@ -49,11 +49,11 @@ function Header(){
         <div className={`searchResult ${result?(result.length >0 && search?'active':''):''}`}>
             <div className="close" onClick={()=>(setresult([]))}>&#x2716;</div>
             {result && result.length >0 && result.map((result)=>(
-                result.poster_path && result.release_date && result.vote_average && result.original_title &&<>
+                result.poster_path && result.release_date && result.overview && result.vote_average && result.original_title &&<>
                 <div className="search__box" >
                     <box>
                 <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to={`/movieInfo${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title}
+                <Link to={`/movieInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title}
                 <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link>
                 </box>
                 <p>{result.overview}</p></div>

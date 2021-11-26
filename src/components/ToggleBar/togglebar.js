@@ -33,11 +33,11 @@ function ToggleBar(){
             </div>
             <div className={`searchResult searhResult_toggle ${result?(result.length >0?'active':''):''}`}>
             {result && result.length >0 && result.map((result)=>(
-                result.poster_path &&<>
+                result.poster_path && <>
                 <div className="search__box search__box__toggle" >
                     <box>
                 <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to={`/movieInfo${result.id}`}>
+                <Link to={`/movieInfo/${result.id}`}>
                     <span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title}</span>
                 </Link>
                 </box></div>

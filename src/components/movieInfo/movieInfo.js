@@ -16,6 +16,18 @@ function MovieInfo(props){
     const [similar,setsimilar] = useState()
     const [cast,setcast] = useState()
 
+    var mainDiv=document.getElementById('similar_movies')
+
+    function scrollright() {
+        console.log('prev')
+        mainDiv.scrollLeft -= 400;
+     }
+     
+     function scrollleft() {
+        console.log('next')
+        mainDiv.scrollLeft += 400;
+     }
+
     var castobj=[]
     useEffect(() => {
         // GET VIDEOS URL
@@ -76,11 +88,15 @@ function MovieInfo(props){
                 </div>
                 <section className="inTheatres container">
                     <h2 className="slide__title">Similar Movies</h2>
-                    <div className='movieBox'></div>
-                    <div className="movie_box_overflow movieinfo__slide container">
+                    <div className='movieBox'>
+                    <button onClick={scrollright} className="prev_button similar_btnp">🢔</button>
+                    <div id="similar_movies" className="movie_box_overflow movieinfo__slide container">
                         {similar && similar.map((movie)=>{
-                            return  <MovieSlide domain='Popular TV Shows' title={movie.original_title} id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
+                            console.log(movie.id,'si')
+                            return  <MovieSlide title={movie.original_title} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average.toFixed(1)}/>
                         })}
+                    </div>
+                    <button onClick={scrollleft} className="next_button similar_btnn">🢖</button>
                     </div>
                 </section>
         </>

@@ -7,6 +7,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
     const [isbooked,setisbooked]=useState('+ Watchlist')
     const [notify,setnotify]=useState()
     const id = useRef()
+    // console.log(movie_id)
     useEffect(()=>{
         user&&
             id_array &&

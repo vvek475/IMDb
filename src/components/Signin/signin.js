@@ -6,6 +6,7 @@ export default function SignIn(props){
     const [username,setusername] = useState('')
     const [pwd,setpwd] = useState('')
     const [error,seterror]=useState()
+    const [loading,setloading] = useState()
     const [signinvisibility,setsigninvisibility] = useState(false)
     // 'http://127.0.0.1:8000/user/login_user'
     useEffect(()=>{
@@ -16,6 +17,7 @@ export default function SignIn(props){
         if (!username || !pwd){
             seterror('Please enter Username and Password')
         }
+        setloading('Logging In .....')
         const response =await  fetch('https://movie-data-app5.herokuapp.com/user/login',{
             method:"POST",
             body:JSON.stringify({
@@ -26,6 +28,7 @@ export default function SignIn(props){
                 'Content-Type':'application/json'
             },
         })
+        setloading(undefined)
         const status=response.status
         if (status===200){
             const data=await response.json()
@@ -41,7 +44,7 @@ export default function SignIn(props){
 
     return(
         <>
-            {error && <div onClick={()=>seterror()} class={`error_block`}>{error}</div>}
+            {(error ||loading) && <div onClick={()=>seterror()} class={`error_block`}>{error}{loading}</div>}
         <div className={signinvisibility? 'signIn__div':props.className}>
             <form className="signIn__form" onSubmit={handleSubmit}>
                 <h2>SIGNIN</h2>
