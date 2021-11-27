@@ -25,7 +25,13 @@ function MovieInfo(props){
      function scrollleft() {
         mainDiv.scrollLeft += 400;
      }
-
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft+=400:console.log() }, 6000);
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft+=800:console.log() }, 12000);
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft+=1200:console.log() }, 18000);
+     // reverse
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft-=1200:console.log() }, 24000);
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft-=800:console.log() }, 30000);
+     setTimeout(function(){mainDiv? mainDiv.scrollLeft-=500:console.log() }, 36000);
     var castobj=[]
     useEffect(() => {
         // GET VIDEOS URL
