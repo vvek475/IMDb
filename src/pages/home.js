@@ -8,19 +8,22 @@ import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 import { useEffect,useState,useContext } from "react";
 import TV from "../components/tvShows/tvShows";
 import user_array from "../store/signinProvider";
+import TopRated from "../components/topRated/topRated";
+
 
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
-const API_URL = BASE_URL+"/discover/movie?sort_by=popularity.desc&"+API_KEY;
+const API_URL = BASE_URL+"/movie/popular?"+API_KEY;
 const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
+const TOP_RATED_URL=`${BASE_URL}/movie/top_rated?${API_KEY}&language=en-US&page=1`
 
 function Home (){
   const [user] = useContext(user_array.Signin);
   const [movieList, setMovieList] = useState([]);
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState([]);
- 
+  const [toprated,settoprated]=useState([]);
     useEffect(() => {
       fetch(API_URL)
         .then((response) => {
@@ -54,6 +57,17 @@ function Home (){
           settv(result);
         })
     },[])
+
+    useEffect(() => {
+      fetch(TOP_RATED_URL)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          const result=data.results  
+          settoprated(result);
+        })
+    },[])
   
     const [movies,setMovies]=useState([])
 
@@ -69,10 +83,11 @@ function Home (){
       })
       
     },[user])
-    const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies}
-    const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies}
+    const topratedobj={'moviearray':toprated,'url':1}
+    const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies,'url':2}
+    const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies,'url':3}
     const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':''}
-  
+
     return (
       <div className="App">
         <TogglebarVissibility>
@@ -80,6 +95,7 @@ function Home (){
           <ToggleBar/>
         </TogglebarVissibility>
         <Hero/>
+        <TopRated {...topratedobj}/>
         <Intheatres {...trendingobj}/>
         <Intheatres {...movieobj}/>
         <TV {...tvobj}/>

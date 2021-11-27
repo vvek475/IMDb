@@ -9,6 +9,7 @@ import Trailer from "./pages/trailer";
 import Watchlist from "./pages/watchlist";
 import user_array from "./store/signinProvider";
 import Registration from "./pages/Registration";
+import TopratedPage from "./components/topratedpage/topRated_page";
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Route path="/trailer/:id" component={Trailer}/>
           <Route path="/watchlist" component={Watchlist}/>
           <Route path="/Registeration" component={Registration}/>
+          <Route path="/page/:url" component={TopratedPage}/>
         </Switch>
       </user_array.Signinprovider>
     </Router>

@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import MovieSlide from "../movieslide/movieslide"
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-function Intheatres({moviearray,title,watchlist}){
+function Intheatres({moviearray,title,watchlist,url}){
     var movie_id_array=[]
     watchlist && watchlist.forEach((e)=>{
         movie_id_array.push(Number(e.movie_id))
@@ -16,7 +17,7 @@ function Intheatres({moviearray,title,watchlist}){
      }
     return(
         <section className="inTheatres container">
-            <h2 className="slide__title">{title}</h2>
+            <Link to={`/page/${url}`} ><h2 className="slide__title">{title}<span className="fancy" children=" >>"></span></h2></Link>
             <div  className='movieBox'>
             <button className="prev_button" onClick={scrollright}>🢔</button>
                 <div id={title}  className="movie_box_overflow">

@@ -5,6 +5,7 @@
     text-decoration: none;
     list-style: none;
     scroll-behavior: smooth;
+    transition: 1s linear;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body{
@@ -374,6 +375,48 @@ iframe{
     flex-direction: column;
     justify-content: space-between;
 }
+
+.toprated__flex{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+.movie_scroll{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.toprated__title{
+    color: white;
+    width: 260px;
+}
+.toprated__release{
+    display: none;
+}
+.toprated__content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+}
+.toprated__div *{
+    color: white;
+    font-size: 18px;
+
+}
+.toprated_img{
+    width: 80px;
+}
+.toprated__add{
+    width: 100%;
+    height: 50px;
+    background-color: gold;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
 .inTheatres{
     max-width: 100vw;
 }
@@ -547,6 +590,18 @@ svg{
     border-left: 5px solid gold;
     cursor: pointer;
 }
+.fancy{
+    font-size: 40px;
+    animation: colorchange 1.5s linear infinite;
+}
+@keyframes colorchange{
+    0%,100%{
+        color: black;
+    }
+    50%{
+        color: white;
+    }
+}
 .movieIframe{
     color: white;
     background-color: black;
@@ -705,11 +760,42 @@ input{
     text-transform: uppercase;
     font-weight: 600;
 }
+/* Toprated page */
+.Toprated__page{
+   background-color: black;
+}
+.page_button{
+    display: inline-block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+.page_button button{
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    background-color: gold;
+    color: black;
+    border-radius:10px ;
+}
+.page_no{
+    color: black;
+    background-color: gold;
+    border-radius: 30px;
+    padding:8px 15px ;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+}
 @media(min-width:760px){ 
     .container{
         width: 670px;
     }
     .movieBox .prev_button,.next_button{
+        display: block;
+    }
+    .toprated__release{
         display: block;
     }
 }
