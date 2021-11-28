@@ -1,7 +1,7 @@
 # Movie-data-app
-<h3>Movie-data-app</h3> This is a movie-data app clonned from IMDb that displays list of
-movies this allows user to create an account and login using the
-Created account.
+<h3>Movie-data-app</h3> This is a movie-data app that displays list of
+movies, this allows user to create an account and login using the
+created account and allows logged in users to add watchlist.
 <br><br>
 <h2>Features :</h2>
 Can search and surf movies and tv shows and create a watchlist, and add movies to watchlist.
