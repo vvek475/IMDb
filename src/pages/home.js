@@ -17,6 +17,7 @@ const API_URL = BASE_URL+"/movie/popular?"+API_KEY;
 const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
 const TOP_RATED_URL=`${BASE_URL}/movie/top_rated?${API_KEY}&language=en-US&page=1`
+const TOP_RATED_URL_TV=`${BASE_URL}/tv/top_rated?${API_KEY}&language=en-US&page=1`
 
 function Home (){
   const [user] = useContext(user_array.Signin);
@@ -24,6 +25,7 @@ function Home (){
   const [trendingList,setTrending]=useState([]);
   const [tv,settv]=useState([]);
   const [toprated,settoprated]=useState([]);
+  const [topratedtv,settopratedtv]=useState([]);
     useEffect(() => {
       fetch(API_URL)
         .then((response) => {
@@ -68,6 +70,19 @@ function Home (){
           settoprated(result);
         })
     },[])
+
+
+    useEffect(() => {
+      fetch(TOP_RATED_URL_TV)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          const result=data.results  
+          settopratedtv(result);
+          console.log(result)
+        })
+    },[])
   
     const [movies,setMovies]=useState([])
 
@@ -83,7 +98,8 @@ function Home (){
       })
       
     },[user])
-    const topratedobj={'moviearray':toprated,'url':1}
+    const topratedobj={'moviearray':toprated,'title':'Top Rated Movies','url':1}
+    const topratedtvobj={'moviearray':topratedtv,'title':'Top Rated TV Shows','url':5}
     const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies,'url':2}
     const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies,'url':3}
     const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':'',url:4}
@@ -98,6 +114,7 @@ function Home (){
         <TopRated {...topratedobj}/>
         <Intheatres {...trendingobj}/>
         <Intheatres {...movieobj}/>
+        <TopRated {...topratedtvobj}/>
         <TV {...tvobj}/>
         <Footer/>
       </div>
