@@ -1,5 +1,5 @@
-# IMDb
-<h3>IMDb</h3> IMDb is a movie-data app clonned from IMDb that displays list of
+# Movie-data-app
+<h3>Movie-data-app</h3> This is a movie-data app clonned from IMDb that displays list of
 movies this allows user to create an account and login using the
 Created account.
 <br><br>
