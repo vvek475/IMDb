@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TogglebarVissibilityContext from "../../store/toggleBarVisibility";
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
-const SEARCH_URL=`${BASE_URL}/search/movie?${API_KEY}&query=`
+const SEARCH_URL=`${BASE_URL}/search/multi?&language=en-US&${API_KEY}&query=`
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 function ToggleBar(){

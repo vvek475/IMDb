@@ -73,7 +73,7 @@ function MovieInfo(props){
 
         {movieinfo  && <div className="movieInfo__content container">
                     <p className="movieInfo__name">
-                    <span><div className='goldenletters'> Title  </div>:&nbsp; {movieinfo.original_title} </span>
+                    <span><div className='goldenletters'> Title  </div>:&nbsp; {movieinfo.original_title || movieinfo.original_name} </span>
                     <span> <div className='goldenletters'>Rating  </div>:&nbsp; {movieinfo.vote_average}</span> 
                     <span><div className='goldenletters'> Status   </div>:&nbsp; {movieinfo.status}</span>
                     <span><div className='goldenletters'> Budget   </div>:&nbsp; {movieinfo.budget} </span>

@@ -86,7 +86,7 @@ function Home (){
     const topratedobj={'moviearray':toprated,'url':1}
     const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies,'url':2}
     const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies,'url':3}
-    const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':''}
+    const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':'',url:4}
 
     return (
       <div className="App">

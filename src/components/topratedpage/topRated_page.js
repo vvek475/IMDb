@@ -26,6 +26,10 @@ export default function TopratedPage(props){
       urlpath='/trending/all/day?'
       page_title='Trending'
     }
+    else if(url==='4'){
+      urlpath='/tv/popular?'
+      page_title='TV Shows'
+    }
   // const TOP_RATED_URL=`${BASE_URL}/movie/top_rated?${API_KEY}&page=1`
     useEffect(() => {
       
@@ -53,11 +57,16 @@ export default function TopratedPage(props){
         <br/><br/><br/><br/>
         <div className="back2Home container">{page_title}</div>
         <section className="Toprated__page container">
+        <span className="page_button">
+        <button className="page_prev" onClick={prev}>Prev</button>
+        <span class="page_no">{page}</span>
+        <button className="page_next" onClick={next}>Next</button>
+        </span>
         <div className='movieBox'>
           <br/><br/><br/><br/>
             <div className="movie_box_overflow watchlist_wrap">
             {value ?value.map((movie)=>{ 
-           return <MovieSlide key={movie.id}watchlist={value} title={movie.title} 
+           return <MovieSlide key={movie.id}watchlist={value} title={movie.title || movie.original_name} 
            domain='In Theatres'
             id={movie.id} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote}/>}):""}
             </div>

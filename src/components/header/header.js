@@ -5,7 +5,7 @@ import SignIn from "../Signin/signin";
 import user_array from "../../store/signinProvider";
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
-const SEARCH_URL=`${BASE_URL}/search/movie?${API_KEY}&query=`
+const SEARCH_URL=`${BASE_URL}/search/multi?${API_KEY}&query=`
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 function Header(){
@@ -22,6 +22,7 @@ function Header(){
           })
           .then((data) => {
             setresult(data.results) 
+            console.log(data)
           })
       },[search])
 
@@ -49,11 +50,11 @@ function Header(){
         <div className={`searchResult ${result?(result.length >0 && search?'active':''):''}`}>
             <div className="close" onClick={()=>(setresult([]))}>&#x2716;</div>
             {result && result.length >0 && result.map((result)=>(
-                result.poster_path && result.release_date && result.overview && result.vote_average && result.original_title &&<>
+                result.poster_path &&<>
                 <div className="search__box" >
                     <box>
                 <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to={`/movieInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title}
+                <Link to={`/movieInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title || result.original_name}
                 <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link>
                 </box>
                 <p>{result.overview}</p></div>
