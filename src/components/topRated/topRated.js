@@ -29,13 +29,19 @@ export default function TopRated({moviearray,url,title}){
             <div class="toprated__flex">
             {values && more && (values.map((movies)=>(
                 <span className="movie_scroll">
-                    <Link to={`/movieInfo/${movies.id}`} >
+                    {movies.name?<Link to={`/movieInfo/${movies.id}`} >
                         <img alt="movie" className="toprated_img" src={IMG_URL+movies.poster_path}/>
                     </Link>
+                    :<Link to={`/movieInfo/${movies.id}`} >
+                        <img alt="movie" className="toprated_img" src={IMG_URL+movies.poster_path}/>
+                    </Link>}
                     <div class="toprated__content">
-                    <Link to={`/movieInfo/${movies.id}`} >
+                        
+                    {movies.name?<Link to={`/tvInfo/${movies.id}`} >
                         <p className="toprated__title">{movies.title || movies.name}</p>
-                    </Link>
+                    </Link>:<Link to={`/movieInfo/${movies.id}`} >
+                        <p className="toprated__title">{movies.title || movies.name}</p>
+                    </Link>}
                     <p><span className="star">★ </span> {movies.vote_average}</p>
                     <p className="toprated__release">Release : {movies.release_date || movies.first_air_date}</p>
                     </div>

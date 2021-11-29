@@ -10,6 +10,7 @@ import Watchlist from "./pages/watchlist";
 import user_array from "./store/signinProvider";
 import Registration from "./pages/Registration";
 import TopratedPage from "./components/topratedpage/topRated_page";
+import TVInfopage from "./pages/tvinfoPage";
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/movieInfo/:id" component={Info} />
+          <Route path="/tvInfo/:id" component={TVInfopage} />
           <Route path="/trailer/:id" component={Trailer}/>
           <Route path="/watchlist" component={Watchlist}/>
           <Route path="/Registeration" component={Registration}/>

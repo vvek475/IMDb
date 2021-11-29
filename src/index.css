@@ -630,6 +630,9 @@ svg{
     font-size: 12px;
     height: fit-content;
 }
+.tvinfo_content{
+    height: 1050px!important;
+}
 .movieInfo__title{
     display: flex;
     justify-content: flex-start;
@@ -639,7 +642,6 @@ svg{
     height: fit-content;
 }
 .movieInfo__name{
-
     font-size:15px;
     max-height: 400px;
     margin-left: 50px;
@@ -811,6 +813,9 @@ input{
     }
     .movieIframe iframe{
         display: flex;
+    }
+    .tvinfo_content{
+        height: 750px!important;
     }
 
 }

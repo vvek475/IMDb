@@ -15,7 +15,7 @@ export default function TopratedPage(props){
     const [page,setpage]=useState(1)
     if (url==='1'){
       urlpath='/movie/top_rated?'
-      page_title='Top Rated'
+      page_title='Top Rated Movies'
       slicer=1
     }
     else if (url==='2'){
@@ -29,6 +29,11 @@ export default function TopratedPage(props){
     else if(url==='4'){
       urlpath='/tv/popular?'
       page_title='TV Shows'
+    }
+    else if(url==='5'){
+      urlpath='/tv/top_rated?'
+      page_title='Top Rated TV Shows'
+      console.log('tvtop')
     }
   // const TOP_RATED_URL=`${BASE_URL}/movie/top_rated?${API_KEY}&page=1`
     useEffect(() => {

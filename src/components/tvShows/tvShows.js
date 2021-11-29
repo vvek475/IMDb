@@ -29,7 +29,7 @@ function TV({moviearray,title,url}){
                 <div id="movieBox__tv" className="movie_box_overflow">
                 {moviearray && moviearray.map((movie)=>(
 
-                <MovieSlide key={movie.id} title={movie.original_name} domain={title}image={IMG_URL+movie.poster_path} 
+                <MovieSlide key={movie.id} title={movie.original_name} movie_id={movie.id}domain={title}image={IMG_URL+movie.poster_path} 
                 vote={movie.vote_average}/>))}
                 </div>
                 <button onClick={scrollleft} className="next_button">🢖</button>

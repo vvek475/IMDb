@@ -36,10 +36,17 @@ function ToggleBar(){
                 result.poster_path && <>
                 <div className="search__box search__box__toggle" >
                     <box>
+                {result.original_name ?
+                <>
+                <Link to={`/tvInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
+                <Link to={`/tvInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_name}</span>
+                </Link></>
+                :
+                <>
                 <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
                 <Link to={`/movieInfo/${result.id}`}>
                     <span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title}</span>
-                </Link>
+                </Link></>}
                 </box></div>
                 </>
             ))}

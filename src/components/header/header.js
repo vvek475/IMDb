@@ -22,7 +22,6 @@ function Header(){
           })
           .then((data) => {
             setresult(data.results) 
-            console.log(data)
           })
       },[search])
 
@@ -53,9 +52,14 @@ function Header(){
                 result.poster_path &&<>
                 <div className="search__box" >
                     <box>
-                <Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
+                {result.original_name?<>
+                <Link to={`/tvInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
+                <Link to={`/tvInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title || result.original_name}
+                <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link></>
+                :
+                <><Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
                 <Link to={`/movieInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title || result.original_name}
-                <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link>
+                <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link></>}
                 </box>
                 <p>{result.overview}</p></div>
                 </>

@@ -80,7 +80,6 @@ function Home (){
         .then((data) => {
           const result=data.results  
           settopratedtv(result);
-          console.log(result)
         })
     },[])
   
