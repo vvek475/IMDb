@@ -71,9 +71,10 @@ export default function TopratedPage(props){
           <br/><br/><br/><br/>
             <div className="movie_box_overflow watchlist_wrap">
             {value ?value.map((movie)=>{ 
-           return <MovieSlide key={movie.id}watchlist={value} title={movie.title || movie.original_name} 
-           domain='In Theatres'
-            id={movie.id} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote}/>}):""}
+              var domain=''
+              movie.original_name?domain='Popular TV Shows':domain='In Theatres'
+           return <MovieSlide key={movie.id}watchlist={value}  title={movie.title || movie.original_name} 
+            id={movie.id} domain={domain} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote}/>}):""}
             </div>
         </div>
         <span className="page_button">
