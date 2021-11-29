@@ -29,7 +29,7 @@ export default function TopRated({moviearray,url,title}){
             <div class="toprated__flex">
             {values && more && (values.map((movies)=>(
                 <span className="movie_scroll">
-                    {movies.name?<Link to={`/movieInfo/${movies.id}`} >
+                    {movies.name?<Link to={`/tvInfo/${movies.id}`} >
                         <img alt="movie" className="toprated_img" src={IMG_URL+movies.poster_path}/>
                     </Link>
                     :<Link to={`/movieInfo/${movies.id}`} >
