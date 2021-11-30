@@ -11,6 +11,7 @@ import user_array from "./store/signinProvider";
 import Registration from "./pages/Registration";
 import TopratedPage from "./components/topratedpage/topRated_page";
 import TVInfopage from "./pages/tvinfoPage";
+import TvTrailer from "./pages/tvtrailer";
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
           <Route path="/movieInfo/:id" component={Info} />
           <Route path="/tvInfo/:id" component={TVInfopage} />
           <Route path="/trailer/:id" component={Trailer}/>
+          <Route path="/tvtrailer/:id" component={TvTrailer}/>
           <Route path="/watchlist" component={Watchlist}/>
           <Route path="/Registeration" component={Registration}/>
           <Route path="/page/:url" component={TopratedPage}/>

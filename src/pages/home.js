@@ -97,9 +97,24 @@ function Home (){
       })
       
     },[user])
+
+    const [recent,setrecent]=useState([])
+    useEffect(()=>{
+      user && fetch("https://movie-data-app5.herokuapp.com/user/recent/recent/",{
+          headers:{'Content-Type':'application/json',
+     'Authorization':`Token ${user.token}`}})
+     .then((body) => {
+      return body.json();
+    })
+    .then((data) => {
+      setrecent(data);
+    })
+    
+  },[user])
     const topratedobj={'moviearray':toprated,'title':'Top Rated Movies','url':1}
     const topratedtvobj={'moviearray':topratedtv,'title':'Top Rated TV Shows','url':5}
     const movieobj={'moviearray':movieList,'title':'In Theatres','watchlist':movies,'url':2}
+    const recentobj={'moviearray':recent,'title':'Recent Views','watchlist':movies,'url':6}
     const trendingobj={'moviearray':trendingList,'title':'Trending','watchlist':movies,'url':3}
     const tvobj={'moviearray':tv,'title':'Popular TV Shows','watchlist':'',url:4}
 
@@ -110,9 +125,10 @@ function Home (){
           <ToggleBar/>
         </TogglebarVissibility>
         <Hero/>
+        {user && recent.length && <Intheatres {...recentobj}/>}
         <TopRated {...topratedobj}/>
-        <Intheatres {...trendingobj}/>
         <Intheatres {...movieobj}/>
+        <Intheatres {...trendingobj}/>
         <TopRated {...topratedtvobj}/>
         <TV {...tvobj}/>
         <Footer/>

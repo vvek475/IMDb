@@ -55,6 +55,27 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
                 })
                 
             }
+
+        // Recent
+        async function submitrecent(e){
+            e.preventDefault()
+            if (user){
+           const response=   await fetch("https://movie-data-app5.herokuapp.com/user/recent/recent/",{
+          method:"POST",
+          body:JSON.stringify({"user": user.user.id,
+          "movie_id": movie_id,
+          "movie_name": title,
+          "image":image,
+          "vote":vote,}
+          ),
+          headers:{'Content-Type':'application/json',
+           'Authorization':`Token ${user.token}`}
+        })
+        console.log(response)}
+        else{
+            console.log('login')
+        }
+        } 
         
     return(
         <div className="movieslides">
@@ -62,11 +83,11 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
             <div className="movieslides__content">
                 <div clas="rating"><span className="star">★</span> {vote} <span className="hollow_star">☆</span></div>
                 {(domain==='Popular TV Shows')?
-                <Link to={`/tvInfo/${movie_id}`} >
-                    <p className="movieslides__title">{title}</p></Link>:
-                <Link to={`/movieInfo/${movie_id}`} >
+                <span onClick={submitrecent}><Link  to={`/tvInfo/${movie_id}`} >
+                    <p className="movieslides__title">{title}</p></Link></span>:
+                <span onClick={submitrecent}  ><Link  to={`/movieInfo/${movie_id}`} >
                     <p  className="movieslides__title">{title}</p>
-                </Link>}
+                </Link></span>}
                 
                 {user?(!(isbooked==='+ Watchlist')?<button  onClick={handlesubmit_delete}   className="add_watchlist">{isbooked}</button>:
                 (<button onClick={handlesubmit} className="add_watchlist">{isbooked}</button>)):
@@ -75,7 +96,8 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
 
                 {notify && <span onClick={()=>setnotify()} className="notify">{notify}</span>}
                 <br/>
-                {domain==='Popular TV Shows'?<p  className="trailer">⏵ Trailer</p>
+                {domain==='Popular TV Shows'?<Link to={`/tvtrailer/${movie_id}`} >
+                    <p  className="trailer">⏵ Trailer</p></Link>
                 :
                 <Link to={`/trailer/${movie_id}`} >
                     <p  className="trailer">⏵ Trailer</p>
