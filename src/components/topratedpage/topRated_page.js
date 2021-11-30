@@ -74,7 +74,7 @@ export default function TopratedPage(props){
               var domain=''
               movie.original_name?domain='Popular TV Shows':domain='In Theatres'
            return <MovieSlide key={movie.id}watchlist={value}  title={movie.title || movie.original_name} 
-            id={movie.id} domain={domain} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote}/>}):""}
+            id={movie.id} domain={domain} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average}/>}):""}
             </div>
         </div>
         <span className="page_button">
