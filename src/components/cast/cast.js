@@ -9,7 +9,7 @@ export default function Cast(cast){
             }
             <div className="movieslides__content">
                 <button className="add_watchlist castname"> {character}</button>
-                <a href="www.google.com "  className="trailer castcharacter">{name}</a>
+                <a href={`https://www.imdb.com/find?q=${name}&ref_=nv_sr_sm`}  target="blank" className="trailer castcharacter">{name}</a>
             </div>
             
         </div>

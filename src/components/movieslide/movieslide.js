@@ -5,7 +5,7 @@ import user_array from "../../store/signinProvider";
 function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
     const [user] = useContext(user_array.Signin)
     const [isbooked,setisbooked]=useState('+ Watchlist')
-    const [notify,setnotify]=useState()
+    const [notify,setnotify]=useState('+ Watchlist')
     const id = useRef()
     useEffect(()=>{
         user&&
@@ -91,10 +91,10 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
                 
                 {user?(!(isbooked==='+ Watchlist')?<button  onClick={handlesubmit_delete}   className="add_watchlist">{isbooked}</button>:
                 (<button onClick={handlesubmit} className="add_watchlist">{isbooked}</button>)):
-                <button onClick={()=>setnotify(notify?"":'Please Log In To Add Watchlist')}  className="add_watchlist">+ Watchlist</button>
+                <button onClick={()=>setnotify(notify==='+ Watchlist'?'Please Log In To Add Watchlist':"+ Watchlist")}  className="add_watchlist">{notify}</button>
                 }
 
-                {notify && <span onClick={()=>setnotify()} className="notify">{notify}</span>}
+                {/* {notify && <span onClick={()=>setnotify()} className="notify">{notify}</span>} */}
                 <br/>
                 {domain==='Popular TV Shows'?<Link to={`/tvtrailer/${movie_id}`} >
                     <p  className="trailer">⏵ Trailer</p></Link>

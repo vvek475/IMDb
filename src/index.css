@@ -217,7 +217,7 @@ header{
     height: 100vh;
     background-color: rgb(0,0,0,0.9);
     width: 100%;
-    margin-top: -100vh;
+    margin-top: -500vh;
     justify-content: center;
     align-content: center;
     transition: 1s linear;
@@ -291,6 +291,7 @@ header{
     justify-content: space-between;
     width: 500px;
 }
+
 .error_block{
     display: flex;
     align-items: center;
@@ -345,8 +346,8 @@ iframe{
     padding:20px 20px;
 }
 .hero__overiframe img{
+    display: none;
     width: 150px;
-    display: inherit;
 }
 .hero__iframe__title{
     font-size: 18px;
@@ -354,13 +355,12 @@ iframe{
     margin-left: 20px;
     display: inherit;
     border-left:5px solid gold
-}
+}   
 .list-items-image{
-    width: 28%;
-    height: 90%;
+    width: 30%;
+    height: auto;
 }
 .list-item-title{
-    color: white;
     cursor: pointer;
 }
 .list-items-content{
@@ -374,7 +374,10 @@ iframe{
     flex-direction: column;
     justify-content: space-between;
 }
-
+.active_trailer{
+    color: black!important;
+    background-color: white;
+}
 .toprated__flex{
     background-color: black;
     display: flex;
@@ -466,7 +469,7 @@ iframe{
     font-size: 18px;
 }
 .slide__title{
-    font-size: 30px;
+    font-size: 25px;
     margin:5rem 0;
     color: white;
     padding-left: 10px;
@@ -488,18 +491,6 @@ iframe{
 .star{
     color:gold !important;
     font-size: 22px;
-}
-.notify{
-    position: absolute;
-    z-index: 1;
-    background-color: black;
-    color: royalblue;
-    padding: 5px;
-    margin-top: 120px;
-    text-align: center;
-    width: 170px;
-    font-size: 20px;
-
 }
 .hollow_star{
     position: relative;
@@ -590,12 +581,12 @@ svg{
     cursor: pointer;
 }
 .fancy{
-    font-size: 40px;
-    animation: colorchange 1.5s linear infinite;
+    font-size: 35px;
+    animation: colorchange 2.5s linear infinite;
 }
 @keyframes colorchange{
     0%,100%{
-        color: black;
+        color: gold;
     }
     50%{
         color: white;
@@ -807,7 +798,6 @@ input{
     .container{
         width: 900px;
     }
-
     .footer{
         height: 35vh;
     }
@@ -816,6 +806,12 @@ input{
     }
     .tvinfo_content{
         height: 750px!important;
+    }
+    .slide__title{
+        font-size: 35px;
+    }
+    .hero__overiframe img{
+        display: inherit;
     }
 
 }

@@ -59,7 +59,7 @@ function Hero(){
             
         <div className="hero__list__box">
             {filtered_movies.map((movies)=>(
-                <span key={movies.id} className="hero__list-box-list-items">
+                <span key={movies.id} className={`hero__list-box-list-items ${movies.id===videos ? 'active_trailer':''}`}>
                 <img  onClick={()=>(changevideo(movies.id,movies.title,movies.vote_average,movies.poster_path))} src={IMG_URL + movies.poster_path} alt={movies.title} className="list-items-image"/>
                 <div className="list-items-content">
                     <h4 onClick={()=>(changevideo(movies.id,movies.title,movies.vote_average,movies.poster_path))}className="list-item-title">{movies.title} <br/><br/>
