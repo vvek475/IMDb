@@ -79,7 +79,11 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
         
     return(
         <div className="movieslides">
-            <img className="movie_img_potrait" src={image} alt={title}/>
+            {(domain==='Popular TV Shows')?
+                <span onClick={submitrecent}><Link  to={`/tvInfo/${movie_id}`} >
+            <img className="movie_img_potrait" src={image} alt={title}/></Link></span>:
+            <span onClick={submitrecent}  ><Link  to={`/movieInfo/${movie_id}`} >
+            <img className="movie_img_potrait" src={image} alt={title}/></Link></span>}
             <div className="movieslides__content">
                 <div clas="rating"><span className="star">★</span> {vote} <span className="hollow_star">☆</span></div>
                 {(domain==='Popular TV Shows')?
