@@ -44,8 +44,9 @@ function Header(){
                 <span className="navbar__signin text-medium">/ SignUp</span>
             </Link>}</div>
         </div>
-
+        {/* SignIN form */}
         {!user && <SignIn className={`signIn__div ${signinvisibility?'active':''}`}/>}
+        {/* Search Results */}
         <div className={`searchResult ${result?(result.length >0 && search?'active':''):''}`}>
             <div className="close" onClick={()=>(setresult([]))}>&#x2716;</div>
             {result && result.length >0 && result.map((result)=>(
@@ -53,12 +54,12 @@ function Header(){
                 <div className="search__box" >
                     <box>
                 {result.original_name?<>
-                <Link to={`/tvInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to={`/tvInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title || result.original_name}
+                <Link to={`/tvInfo/${result.id}`}><img onClick={()=>setresult([])}alt={result.original_title || result.original_name} src={IMG_URL+result.poster_path}/></Link>
+                <Link to={`/tvInfo/${result.id}`}><span onClick={()=>setresult([])} className="search_title">{result.original_title || result.original_name}
                 <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link></>
                 :
-                <><Link to={`/movieInfo/${result.id}`}><img alt="" src={IMG_URL+result.poster_path}/></Link>
-                <Link to={`/movieInfo/${result.id}`}><span /* onClick={()=>(setmovieid(result.id))} */ className="search_title">{result.original_title || result.original_name}
+                <><Link to={`/movieInfo/${result.id}`}><img onClick={()=>setresult([])} alt={result.original_title || result.original_name} src={IMG_URL+result.poster_path}/></Link>
+                <Link to={`/movieInfo/${result.id}`}><span onClick={()=>setresult([])} className="search_title">{result.original_title || result.original_name}
                 <br/>RELEASE : {result.release_date}<span className="star">★ {result.vote_average}</span></span></Link></>}
                 </box>
                 <p>{result.overview}</p></div>

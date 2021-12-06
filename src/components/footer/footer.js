@@ -27,7 +27,7 @@ function Footer(){
                     </ul> */}
                     <div className="footer__end">A shoutout to 
                         <span className="vivek"><a href="https://www.themoviedb.org/"> The Movie DataBase</a></span>
-                        for providing the API. <br/>All the data are provided by TMDB.<br/><br/>
+                        for providing the API. <br/>All the data are provided by TMDB. I don't own any of these data.<br/><br/>
                         © Nov 2021 
                         <span className="vivek"><a href="https://vivek8teen.netlify.app/"> Vivekanandan</a></span>
                     </div>
