@@ -21,6 +21,9 @@ button{
 a{
     color: gold;
 }
+iframe{
+    border: none;
+}
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
@@ -445,6 +448,7 @@ iframe{
     z-index: 20;
     padding: 15px;
     border-radius: 5px;
+    max-height: 150px;
 }
 .prev_button{
     top: 318px;
@@ -601,7 +605,7 @@ svg{
 }
 .info__iframe{
     width: 75%;
-    height: 100%;
+    height: 104.65%;
     padding: 0;
 }
 .movieInfo__content{
@@ -779,6 +783,83 @@ input{
     font-size: 20px;
     font-weight: 600;
 }
+/* Traier list */
+.trailerlist__bg__img{
+    height: 600px;
+    background: url('https://i.postimg.cc/rs5MwMhB/collage-wallpaper.jpg') center;
+}
+.trailerlist{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(gold,transparent);
+    display: flex;
+    justify-content: center;
+}
+.trailer__box{
+    height: 100%;
+    width: 90%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.trailerslides{
+    min-width: 400px ;
+    height: 220px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+.playbutton{
+    width: 80px;
+}
+.overlaytrailer__fullscreen{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlaytrailer__fullscreen iframe{
+    width: 100%;
+    height: 85%;
+}
+.none{
+    display: none;
+}
+.block{
+    display:flex;
+}
+.trlbtnp{
+    display: none;
+    position: relative;
+    top: 40%;
+    height: 100px;
+    min-width: 30px;
+    padding: 15px;
+    font-size: 50px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245,0.5);
+}
+.trlbtnn{
+    position: relative;
+    top: 40%;
+    height: 100px;
+    min-width: 30px;
+    padding: 15px;
+    font-size: 50px;
+}
+.trailer__title{
+    color: gold;
+}
+
 @media(min-width:760px){ 
     .container{
         width: 670px;
@@ -787,6 +868,9 @@ input{
         display: block;
     }
     .toprated__release{
+        display: block;
+    }
+    .trlbtnp{
         display: block;
     }
 }
@@ -808,6 +892,10 @@ input{
     }
     .hero__overiframe img{
         display: inherit;
+    }
+    .overlaytrailer__fullscreen iframe{
+        width: 80%;
+        height: 85%;
     }
 
 }

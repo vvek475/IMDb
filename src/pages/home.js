@@ -9,12 +9,13 @@ import { useEffect,useState,useContext } from "react";
 import TV from "../components/tvShows/tvShows";
 import user_array from "../store/signinProvider";
 import TopRated from "../components/topRated/topRated";
+import Trailerlist from "../components/trailerlist/trailerlist";
 
 
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
 const BASE_URL ='https://api.themoviedb.org/3'
 const API_URL = BASE_URL+"/movie/popular?"+API_KEY;
-const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}`
+const TRENDING_URL = `${BASE_URL}/trending/all/day?${API_KEY}&language=en-US&page=1`
 const TV_URL=`${BASE_URL}/tv/popular?${API_KEY}&language=en-US&page=1`
 const TOP_RATED_URL=`${BASE_URL}/movie/top_rated?${API_KEY}&language=en-US&page=1`
 const TOP_RATED_URL_TV=`${BASE_URL}/tv/top_rated?${API_KEY}&language=en-US&page=1`
@@ -128,6 +129,7 @@ function Home (){
         {user && recent.length && <Intheatres {...recentobj}/>}
         <TopRated {...topratedobj}/>
         <Intheatres {...movieobj}/>
+        <Trailerlist {...{trendingList}}/>
         <Intheatres {...trendingobj}/>
         <TopRated {...topratedtvobj}/>
         <TV {...tvobj}/>

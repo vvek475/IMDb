@@ -19,6 +19,7 @@ function Intheatres({moviearray,title,watchlist,url}){
     var arr=[]
     var arr3=[]
     var arr2=[]
+    /* not to repeat movies in recent */
     array.forEach((element)=>{
         if (!arr2.includes(element.movie_id)){
             arr.push(element.id)
