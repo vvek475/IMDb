@@ -846,7 +846,7 @@ input{
     padding: 15px;
     font-size: 50px;
     border-radius: 5px;
-    background-color: rgb(245, 245, 245,0.5);
+    background-color: rgb(245, 245, 245,0.9);
 }
 .trlbtnn{
     position: relative;
@@ -855,6 +855,7 @@ input{
     min-width: 30px;
     padding: 15px;
     font-size: 50px;
+    background-color: rgb(245, 245, 245,0.9);
 }
 .trailer__title{
     color: gold;
