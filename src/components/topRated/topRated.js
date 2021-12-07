@@ -28,7 +28,7 @@ export default function TopRated({moviearray,url,title}){
     // Recent
     async function submitrecent(e,movie_id,title,image,vote){
         e.preventDefault()
-        console.log(title)
+
         if (user){
             await fetch("https://movie-data-app5.herokuapp.com/user/recent/recent/",{
             method:"POST",

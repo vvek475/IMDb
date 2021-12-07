@@ -4,7 +4,7 @@ export default function Watchcomponent(values){
     const {value}=values
     return(
         <>
-        <section className="inTheatres container">
+        <section className="movieContainer container">
         <h2  className="slide__title">Watchlist</h2>
         <div className='movieBox'>
             <div className="movie_box_overflow watchlist_wrap">

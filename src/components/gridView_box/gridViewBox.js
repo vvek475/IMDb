@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-export default function TopratedPage(props){
+export default function GridViewBox(props){
   const url=props.match.params.url
   console.log(url)
   var urlpath=undefined
@@ -73,7 +73,7 @@ export default function TopratedPage(props){
             {value ?value.map((movie)=>{ 
               var domain=''
               movie.original_name?domain='Popular TV Shows':domain='In Theatres'
-           return <MovieSlide key={movie.id}watchlist={value}  title={movie.title || movie.original_name} 
+           return <MovieSlide key={movie.id}watchlist={value}  title={movie.title} tvname={movie.original_name} 
             id={movie.id} domain={domain} movie_id={movie.id} image={IMG_URL+movie.poster_path} vote={movie.vote_average}/>}):""}
             </div>
         </div>

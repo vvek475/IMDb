@@ -10,7 +10,7 @@ export default function TvTrailer(props){
     fetch(BASE_URL + '/tv/'+id+'/videos?'+API_KEY).then(res => res.json()).then(videoData => fetch_video(videoData))
     },[id])
     function fetch_video(data){
-        const {key}=data.results[1]
+        const {key}=data.results[0]
         setvid(`https://www.youtube.com/embed/${key}`)
     }
     return (

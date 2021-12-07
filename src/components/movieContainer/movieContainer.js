@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import MovieSlide from "../movieslide/movieslide"
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-function Intheatres({moviearray,title,watchlist,url}){
+function MovieContainer({moviearray,title,watchlist,url}){
     var movie_id_array=[]
     watchlist && watchlist.forEach((e)=>{
         movie_id_array.push(Number(e.movie_id))
@@ -36,7 +36,7 @@ function Intheatres({moviearray,title,watchlist,url}){
     setTimeout(function(){mainDiv? mainDiv.scrollLeft-=800:console.log() }, 30000);
     setTimeout(function(){mainDiv? mainDiv.scrollLeft-=500:console.log() }, 36000);
     return(
-        <section className="inTheatres container">
+        <section className="movieContainer container">
             {title!=='Recent Views'?<Link to={`/page/${url}`} >
                 <h2 className="slide__title">{title}<span className="fancy" children=" >>"></span></h2></Link>: 
                 <h2 className="slide__title">{title}</h2>}
@@ -44,8 +44,8 @@ function Intheatres({moviearray,title,watchlist,url}){
             <button className="prev_button" onClick={scrollright}>🢔</button>
                 <div id={title}  className="movie_box_overflow">
                 {title!=='Recent Views'?moviearray && moviearray.map((movie)=>(
-                    movie.original_title && movie.vote_average>1 && <MovieSlide key={movie.id} watchlist={watchlist} title={movie.original_title} 
-                    domain={title} movie_id={movie.id} id_array={movie_id_array} image={IMG_URL+movie.poster_path} vote={movie.vote_average}/>))
+                    (movie.original_title || movie.original_name) && movie.vote_average>1 && <MovieSlide key={movie.id} watchlist={watchlist} title={movie.original_title} tvname={ movie.original_name} 
+                    movie_id={movie.id} id_array={movie_id_array} image={IMG_URL+movie.poster_path} vote={movie.vote_average}/>))
                 :/* Recent */
                moviearray && arr3.map((movie)=>{
                     return <MovieSlide key={movie.id} watchlist={watchlist} title={movie.movie_name} 
@@ -57,4 +57,4 @@ function Intheatres({moviearray,title,watchlist,url}){
     )
 }
 
-export default Intheatres
+export default MovieContainer

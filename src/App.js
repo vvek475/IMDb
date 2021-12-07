@@ -9,9 +9,9 @@ import Trailer from "./pages/trailer";
 import Watchlist from "./pages/watchlist";
 import user_array from "./store/signinProvider";
 import Registration from "./pages/Registration";
-import TopratedPage from "./components/topratedpage/topRated_page";
 import TVInfopage from "./pages/tvinfoPage";
 import TvTrailer from "./pages/tvtrailer";
+import GridViewBox from "./components/gridView_box/gridViewBox";
 
 function App() {
   
@@ -28,7 +28,7 @@ function App() {
           <Route path="/tvtrailer/:id" component={TvTrailer}/>
           <Route path="/watchlist" component={Watchlist}/>
           <Route path="/Registeration" component={Registration}/>
-          <Route path="/page/:url" component={TopratedPage}/>
+          <Route path="/page/:url" component={GridViewBox}/>
         </Switch>
       </user_array.Signinprovider>
     </Router>

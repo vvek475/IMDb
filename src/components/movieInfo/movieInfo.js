@@ -90,7 +90,7 @@ function MovieInfo(props){
                     
                     <Cast value={cast}/>)}
                 </div>
-                <section className="inTheatres container">
+                <section className="movieContainer container">
                     <h2 className="slide__title">Similar Movies</h2>
                     <div className='movieBox'>
                     <button onClick={scrollright} className="prev_button similar_btnp">🢔</button>

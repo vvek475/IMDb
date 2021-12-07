@@ -1,15 +1,14 @@
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import Hero from "../components/hero/hero";
-import Intheatres from "../components/inTheatres/intheatres";
 import ToggleBar from "../components/ToggleBar/togglebar";
 import{ TogglebarVissibility } from "../store/toggleBarVisibility";
 
 import { useEffect,useState,useContext } from "react";
-import TV from "../components/tvShows/tvShows";
 import user_array from "../store/signinProvider";
 import TopRated from "../components/topRated/topRated";
 import Trailerlist from "../components/trailerlist/trailerlist";
+import MovieContainer from "../components/movieContainer/movieContainer";
 
 
 const API_KEY="api_key=4f131ce27b7e4bfcd74de86ff5191005"
@@ -126,13 +125,15 @@ function Home (){
           <ToggleBar/>
         </TogglebarVissibility>
         <Hero/>
-        {user && recent.length && <Intheatres {...recentobj}/>}
-        <TopRated {...topratedobj}/>
-        <Intheatres {...movieobj}/>
+        {user && recent.length && <MovieContainer {...recentobj}/>}
+        <MovieContainer {...trendingobj}/>
         <Trailerlist {...{trendingList}}/>
-        <Intheatres {...trendingobj}/>
+        <TopRated {...topratedobj}/>
+        <MovieContainer {...movieobj}/>
         <TopRated {...topratedtvobj}/>
-        <TV {...tvobj}/>
+        <MovieContainer {...tvobj}/>
+
+        {/* <TV {...tvobj}/> */}
         <Footer/>
       </div>
     );

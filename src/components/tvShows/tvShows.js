@@ -22,7 +22,7 @@ function TV({moviearray,title,url}){
      setTimeout(function(){mainDiv? mainDiv.scrollLeft-=800:console.log() }, 30000);
      setTimeout(function(){mainDiv? mainDiv.scrollLeft-=500:console.log() }, 36000);
     return(
-        <section className="inTheatres container">
+        <section className="movieContainer container">
             <Link to={`/page/${url}`} ><h2 className="slide__title">{title}<span className="fancy" children=" >>"></span></h2></Link>
             <div className='movieBox'>
                 <button onClick={scrollright} className="prev_button">🢔</button>

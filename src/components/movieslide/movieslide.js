@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import {useState,useEffect,useContext,useRef} from "react"
 import user_array from "../../store/signinProvider";
 
-function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
+function MovieSlide({title,tvname,image,vote,movie_id,domain,watchlist,id_array}){
     const [user] = useContext(user_array.Signin)
     const [isbooked,setisbooked]=useState('+ Watchlist')
     const [notify,setnotify]=useState('+ Watchlist')
     const id = useRef()
+
+    
     useEffect(()=>{
         user&&
             id_array &&
@@ -60,35 +62,34 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
         async function submitrecent(e){
             e.preventDefault()
             if (user){
-           const response=   await fetch("https://movie-data-app5.herokuapp.com/user/recent/recent/",{
-          method:"POST",
-          body:JSON.stringify({"user": user.user.id,
-          "movie_id": movie_id,
-          "movie_name": title,
-          "image":image,
-          "vote":vote,}
-          ),
-          headers:{'Content-Type':'application/json',
-           'Authorization':`Token ${user.token}`}
-        })
-        console.log(response)}
-        else{
-            console.log('login')
-        }
+                await fetch("https://movie-data-app5.herokuapp.com/user/recent/recent/",{
+                    method:"POST",
+                    body:JSON.stringify(
+                        {"user": user.user.id,
+                        "movie_id": movie_id,
+                        "movie_name": title,
+                        "image":image,
+                        "vote":vote,}
+                    ),
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':`Token ${user.token}`}
+                })
+            }
         } 
         
     return(
         <div className="movieslides">
-            {(domain==='Popular TV Shows')?
+            {tvname?
                 <span onClick={submitrecent}><Link  to={`/tvInfo/${movie_id}`} >
-            <img className="movie_img_potrait" src={image} alt={title}/></Link></span>:
+            <img className="movie_img_potrait" src={image} alt={title || tvname}/></Link></span>:
             <span onClick={submitrecent}  ><Link  to={`/movieInfo/${movie_id}`} >
-            <img className="movie_img_potrait" src={image} alt={title}/></Link></span>}
+            <img className="movie_img_potrait" src={image} alt={title || tvname}/></Link></span>}
             <div className="movieslides__content">
                 <div clas="rating"><span className="star">★</span> {vote} <span className="hollow_star">☆</span></div>
-                {(domain==='Popular TV Shows')?
+                {tvname?
                 <span onClick={submitrecent}><Link  to={`/tvInfo/${movie_id}`} >
-                    <p className="movieslides__title">{title}</p></Link></span>:
+                    <p className="movieslides__title">{tvname}</p></Link></span>:
                 <span onClick={submitrecent}  ><Link  to={`/movieInfo/${movie_id}`} >
                     <p  className="movieslides__title">{title}</p>
                 </Link></span>}
@@ -100,7 +101,7 @@ function MovieSlide({title,image,vote,movie_id,domain,watchlist,id_array}){
 
                 {/* {notify && <span onClick={()=>setnotify()} className="notify">{notify}</span>} */}
                 <br/>
-                {domain==='Popular TV Shows'?<Link to={`/tvtrailer/${movie_id}`} >
+                {tvname?<Link to={`/tvtrailer/${movie_id}`} >
                     <p  className="trailer">⏵ Trailer</p></Link>
                 :
                 <Link to={`/trailer/${movie_id}`} >
